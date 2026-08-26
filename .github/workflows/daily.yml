@@ -21,9 +21,17 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           GITHUB_PAGES_URL: ${{ vars.GITHUB_PAGES_URL || 'https://abtmohamedmoussa-svg.github.io/veille-bfi/' }}
         run: python brief.py daily
+      - name: Commit et push les fichiers générés
+        if: success()
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add index.html briefs.json archive.json 2>/dev/null || true
+          git commit -m "🔄 Update briefs: $(date +%Y-%m-%d)" || true
+          git push
       - name: ✅ Succès
         if: success()
-        run: echo "[OK] Brief quotidien envoyé (HTML + Telegram + Archive)"
+        run: echo "[OK] Brief quotidien envoyé + fichiers pushés"
       - name: ❌ Erreur — Notifier Telegram
         if: failure()
         env:

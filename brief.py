@@ -11,7 +11,7 @@ Variables d'environnement attendues (secrets GitHub) :
     GEMINI_API_KEY       cle API Google AI Studio (gratuite)
     TELEGRAM_BOT_TOKEN   token du bot @BotFather
     TELEGRAM_CHAT_ID     identifiant du chat/canal Telegram
-    GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.6-flash")
+    GEMINI_MODEL         (optionnel) defaut : gemini-2.5-flash
 """
 
 import os
@@ -26,7 +26,7 @@ MODE = (sys.argv[1] if len(sys.argv) > 1 else "daily").strip().lower()
 GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
 TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
-GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.6-flash")
 
 TODAY = datetime.date.today().strftime("%d/%m/%Y")
 
@@ -44,16 +44,16 @@ REGLES : n'invente AUCUN chiffre ; si un chiffre n'est pas sourcable, ecris "non
 
 SORTIE : produis UNIQUEMENT le texte du digest ci-dessous, rien d'autre (pas d'introduction, pas de conclusion, pas de liens). Chaque puce = 1 phrase claire et autoportante (20-30 mots) avec le chiffre cle s'il existe. Reste sous 3500 caracteres. Format EXACT :
 
-ðï¸ Brief du {TODAY}
+🗞️ Brief du {TODAY}
 
-ð¹ð³ TUNISIE
-â¢ [titre court] : [1 phrase]
+🇹🇳 TUNISIE
+• [titre court] : [1 phrase]
 
-ð INTERNATIONAL
-â¢ [titre court] : [1 phrase]
+🌍 INTERNATIONAL
+• [titre court] : [1 phrase]
 
-ð MARCHÃS & TAUX
-â¢ [mouvement] : [1 phrase, chiffre sourcÃ© si dispo]
+📈 MARCHÉS & TAUX
+• [mouvement] : [1 phrase, chiffre sourcé si dispo]
 """
 
 WEEKLY_PROMPT = f"""Tu es l'assistant de veille strategique d'un responsable de la Banque de financement et d'investissement (Attijari Bank Tunisie). Nous sommes le {TODAY}. Utilise la recherche Google pour l'actualite des 7 derniers jours.
@@ -66,16 +66,16 @@ Blocs : A = Banque & finance (max 5) ; B = Autres secteurs (max 5) ; C = Macro/p
 
 SORTIE : produis UNIQUEMENT le texte du digest ci-dessous, rien d'autre (pas de liens). Chaque puce = 1 a 2 phrases completes et autoportantes (20-35 mots) : quoi + mecanisme + chiffre cle. Reste sous 3500 caracteres. Format EXACT :
 
-ð Veille â semaine du {TODAY}
+📊 Veille — semaine du {TODAY}
 
-A Â· BANQUE
-â¢ [Acteur] : [1-2 phrases]
+A · BANQUE
+• [Acteur] : [1-2 phrases]
 
-B Â· SECTEURS
-â¢ [Acteur] : [1-2 phrases]
+B · SECTEURS
+• [Acteur] : [1-2 phrases]
 
-C Â· MACRO
-â¢ [Etat] : [1-2 phrases]
+C · MACRO
+• [Etat] : [1-2 phrases]
 """
 
 PROMPT = DAILY_PROMPT if MODE == "daily" else WEEKLY_PROMPT

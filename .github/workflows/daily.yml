@@ -19,6 +19,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GITHUB_PAGES_URL: ${{ vars.GITHUB_PAGES_URL || 'https://abtmohamedmoussa-svg.github.io/veille-bfi/' }}
         run: python brief.py daily
       - name: ✅ Succès
         if: success()

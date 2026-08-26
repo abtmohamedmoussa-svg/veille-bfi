@@ -1,20 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Brief Quotidien / Veille hebdo -> Telegram, via l'API Gemini (palier gratuit).
-Aucune dependance externe : uniquement la bibliotheque standard Python.
-
-Usage : python brief.py daily
-        python brief.py weekly
-"""
+"""Brief Quotidien / Veille hebdo -> Telegram. RSS + Gemini (stdlib only)."""
 
 import os
+import re
 import sys
 import json
 import time
 import datetime
 import urllib.request
 import urllib.error
+import xml.etree.ElementTree as ET
 
 MODE = (sys.argv[1] if len(sys.argv) > 1 else "daily").strip().lower()
 
@@ -24,16 +20,93 @@ TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
 GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.6-flash")
 
 TODAY = datetime.date.today().strftime("%d/%m/%Y")
+UA = "Mozilla/5.0 (compatible; VeilleBot/1.0)"
 
-DAILY_PROMPT = f"""Tu es l'assistant de veille d'un responsable de la Banque de financement et d'investissement (Attijari Bank Tunisie). Nous sommes le {TODAY}. Utilise la recherche Google pour l'actualite reelle des dernieres 24 h (ou du dernier jour ouvre pour les marches).
+DAILY_FEEDS = [
+    ("Webmanagercenter", "https://www.webmanagercenter.com/feed/"),
+    ("African Manager", "https://africanmanager.com/feed/"),
+    ("Tunisie Numerique", "https://www.tunisienumerique.com/feed/"),
+    ("Business News", "https://www.businessnews.com.tn/feed"),
+    ("Le Monde Economie", "https://www.lemonde.fr/economie/rss_full.xml"),
+    ("France24 Eco", "https://www.france24.com/fr/économie/rss"),
+    ("WSJ Markets", "https://feeds.a.dj.com/rss/RSSMarketsMain.xml"),
+]
+WEEKLY_FEEDS = [
+    ("Finextra", "https://www.finextra.com/rss/headlines.aspx"),
+    ("TechCabal", "https://techcabal.com/feed/"),
+    ("Wamda", "https://www.wamda.com/feed"),
+    ("Rest of World", "https://restofworld.org/feed/latest/"),
+    ("Sifted", "https://sifted.eu/feed"),
+    ("Le Monde Economie", "https://www.lemonde.fr/economie/rss_full.xml"),
+]
+FEEDS = DAILY_FEEDS if MODE == "daily" else WEEKLY_FEEDS
+PER_FEED = 6
 
-ANGLE : priorite economie, finance, marches, banque ; plus les grands titres politiques/macro (Tunisie + international) utiles a cette fonction. Pas un journal generaliste.
 
-SOURCES a privilegier : cote Tunisie (Business News, Managers, L'Economiste Maghrebin, Leaders, Webmanagercenter, Tunisie Numerique, TAP, Ilboursa) ; cote international (Reuters, AFP, Bloomberg, Financial Times, Les Echos, Jeune Afrique, BCE/Fed/FMI).
+def strip_html(s):
+    s = re.sub(r"<[^>]+>", " ", s or "")
+    s = re.sub(r"&[a-zA-Z#0-9]+;", " ", s)
+    return re.sub(r"\s+", " ", s).strip()
 
-REGLES : n'invente AUCUN chiffre ; si un chiffre n'est pas sourcable, ecris "non chiffre". Reste factuel et neutre, sans jugement politique. Pas de remplissage.
 
-SORTIE : produis UNIQUEMENT le texte du digest ci-dessous, rien d'autre (pas d'introduction, pas de liens). Chaque puce = 1 phrase claire et autoportante (20-30 mots) avec le chiffre cle s'il existe. Reste sous 3500 caracteres. Format EXACT :
+def fetch_feed(name, url):
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": UA})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            raw = r.read()
+        root = ET.fromstring(raw)
+    except Exception as e:
+        print(f"[feed] {name} : ignore ({e})")
+        return []
+    items = []
+    for it in root.iter("item"):
+        title = (it.findtext("title") or "").strip()
+        desc = strip_html(it.findtext("description") or "")
+        date = (it.findtext("pubDate") or "").strip()
+        if title:
+            items.append((name, title, desc[:220], date))
+        if len(items) >= PER_FEED:
+            break
+    if not items:
+        ns = "{http://www.w3.org/2005/Atom}"
+        for e in root.iter(ns + "entry"):
+            title = (e.findtext(ns + "title") or "").strip()
+            desc = strip_html(e.findtext(ns + "summary") or e.findtext(ns + "content") or "")
+            date = (e.findtext(ns + "updated") or e.findtext(ns + "published") or "").strip()
+            if title:
+                items.append((name, title, desc[:220], date))
+            if len(items) >= PER_FEED:
+                break
+    print(f"[feed] {name} : {len(items)} items")
+    return items
+
+
+def gather():
+    out = []
+    for name, url in FEEDS:
+        out.extend(fetch_feed(name, url))
+    return out
+
+
+def build_context(items):
+    lines = []
+    for name, title, desc, date in items:
+        line = f"- [{name}] {title}"
+        if date:
+            line += f" ({date})"
+        if desc:
+            line += f" — {desc}"
+        lines.append(line)
+    return "\n".join(lines)
+
+
+DAILY_INSTRUCTIONS = f"""Tu es l'assistant de veille d'un responsable de la Banque de financement et d'investissement (Attijari Bank Tunisie). Nous sommes le {TODAY}.
+
+A partir UNIQUEMENT des titres reels ci-dessous, redige un brief presse du jour. Priorite : economie, finance, marches, banque ; plus les grands titres politiques/macro (Tunisie + international) utiles a un banquier d'affaires. Ignore people, faits divers, sport, communiques marketing.
+
+REGLES : n'invente AUCUN chiffre ni fait absent des titres fournis. Factuel et neutre. Pas de remplissage.
+
+SORTIE : produis UNIQUEMENT le digest ci-dessous (pas d'intro, pas de liens). Chaque puce = 1 phrase claire. Sous 3500 caracteres. Format EXACT :
 
 🗞️ Brief du {TODAY}
 
@@ -44,18 +117,16 @@ SORTIE : produis UNIQUEMENT le texte du digest ci-dessous, rien d'autre (pas d'i
 - [titre court] : [1 phrase]
 
 📈 MARCHÉS & TAUX
-- [mouvement] : [1 phrase, chiffre sourcé si dispo]
+- [mouvement] : [1 phrase]
 """
 
-WEEKLY_PROMPT = f"""Tu es l'assistant de veille strategique d'un responsable de la Banque de financement et d'investissement (Attijari Bank Tunisie). Nous sommes le {TODAY}. Utilise la recherche Google pour l'actualite des 7 derniers jours.
+WEEKLY_INSTRUCTIONS = f"""Tu es l'assistant de veille strategique d'un responsable de la Banque de financement et d'investissement (Attijari Bank Tunisie). Nous sommes le {TODAY}.
 
-OBJET : "Veille Disruption & Strategie". Un sujet n'entre QUE s'il modifie au moins un de : la structure de la chaine de valeur (un maillon disparait/se deplace), qui capte la marge, la structure de couts (ordre de grandeur), ou la regle du jeu (reglementaire/techno/acces marche). EXCLUS : levees de fonds sans structure, exits, prix, nominations, classements, partenariats vides, communiques marketing, cours de bourse, recits de fondateurs sans chiffres.
+A partir UNIQUEMENT des titres reels ci-dessous (7 derniers jours), redige une "Veille Disruption & Strategie". Un sujet n'entre QUE s'il modifie : la chaine de valeur, qui capte la marge, la structure de couts (ordre de grandeur), ou la regle du jeu. EXCLUS : levees sans structure, exits, prix, nominations, classements, partenariats vides, cours de bourse.
 
-Sources : Finextra, Sifted, Ledger Insights, PYMNTS, The Paypers, Global Custodian, TechCabal, Wamda, Rest of World, Reuters Africa, Stratechery, The Generalist, BIS, FMI, Banque mondiale, Reuters, FT, The Economist.
+REGLES : n'invente AUCUN chiffre absent des titres. Qualite > quantite ; un bloc peut rester vide. Plafond 5 sujets par bloc.
 
-Blocs : A = Banque & finance (max 5) ; B = Autres secteurs (max 5) ; C = Macro/politique publique (max 5, sans jugement politique). Les quotas sont des plafonds, jamais des objectifs : un bloc peut rester vide. Qualite > quantite. N'invente AUCUN chiffre ; sinon "non chiffre".
-
-SORTIE : produis UNIQUEMENT le texte du digest ci-dessous, rien d'autre (pas de liens). Chaque puce = 1 a 2 phrases completes (20-35 mots) : quoi + mecanisme + chiffre cle. Reste sous 3500 caracteres. Format EXACT :
+SORTIE : produis UNIQUEMENT le digest ci-dessous (pas de liens). Chaque puce = 1 a 2 phrases. Sous 3500 caracteres. Format EXACT :
 
 📊 Veille — semaine du {TODAY}
 
@@ -69,75 +140,62 @@ C · MACRO
 - [Etat] : [1-2 phrases]
 """
 
-PROMPT = DAILY_PROMPT if MODE == "daily" else WEEKLY_PROMPT
+INSTRUCTIONS = DAILY_INSTRUCTIONS if MODE == "daily" else WEEKLY_INSTRUCTIONS
 
 
-def _post_json(url, payload, timeout=180):
-    data = json.dumps(payload).encode("utf-8")
-    req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=timeout) as resp:
-        return json.load(resp)
-
-
-def call_gemini(prompt, use_search=True, max_retries=4):
+def call_gemini(prompt, max_retries=4):
     url = ("https://generativelanguage.googleapis.com/v1beta/models/"
            f"{GEMINI_MODEL}:generateContent?key={GEMINI_API_KEY}")
     body = {
         "contents": [{"role": "user", "parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0.4, "maxOutputTokens": 8192},
+        "generationConfig": {"temperature": 0.4, "maxOutputTokens": 8192,
+                             "thinkingConfig": {"thinkingLevel": "MINIMAL"}},
     }
-    if use_search:
-        body["tools"] = [{"google_search": {}}]
-
-    last_err = None
+    last = None
     for attempt in range(1, max_retries + 1):
         try:
-            data = _post_json(url, body)
-            cand = data["candidates"][0]
+            data = json.dumps(body).encode("utf-8")
+            req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
+            with urllib.request.urlopen(req, timeout=180) as resp:
+                out = json.load(resp)
+            cand = out["candidates"][0]
             parts = cand.get("content", {}).get("parts", [])
             text = "".join(p.get("text", "") for p in parts).strip()
             if not text:
-                raise RuntimeError("texte vide (essai " + str(attempt) + ")")
+                raise RuntimeError("texte vide (finishReason=" + str(cand.get("finishReason")) + ")")
             return text
         except urllib.error.HTTPError as e:
-            detail = e.read().decode("utf-8", "ignore")[:200]
-            last_err = f"HTTP {e.code} : {detail}"
-            if e.code == 429 and attempt < max_retries:
-                print(f"[brief] 429 quota, pause 25s (essai {attempt}/{max_retries})")
-                time.sleep(25)
-                continue
+            last = f"HTTP {e.code} : " + e.read().decode('utf-8', 'ignore')[:200]
+            if e.code in (429, 500, 503) and attempt < max_retries:
+                print(f"[gemini] {e.code}, pause 20s (essai {attempt}/{max_retries})")
+                time.sleep(20); continue
             raise
         except RuntimeError as e:
-            last_err = str(e)
+            last = str(e)
             if attempt < max_retries:
-                print(f"[brief] {e}, nouvelle tentative dans 10s")
-                time.sleep(10)
-                continue
+                print(f"[gemini] {e}, retry 8s"); time.sleep(8); continue
             raise
-    raise RuntimeError("Gemini a echoue : " + str(last_err))
+    raise RuntimeError("Gemini a echoue : " + str(last))
 
 
 def send_telegram(text):
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
     payload = {"chat_id": TELEGRAM_CHAT_ID, "text": text[:4090], "disable_web_page_preview": True}
-    return _post_json(url, payload, timeout=60)
+    data = json.dumps(payload).encode("utf-8")
+    req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        return json.load(r)
 
 
 def main():
     print(f"[brief] mode={MODE} modele={GEMINI_MODEL} date={TODAY}")
-    try:
-        digest = call_gemini(PROMPT, use_search=True)
-        print("[brief] Gemini OK (avec recherche Google)")
-    except Exception as e:
-        print(f"[brief] recherche Google indisponible : {e}")
-        print("[brief] repli SANS recherche (actualite moins fraiche)...")
-        digest = call_gemini(PROMPT, use_search=False)
-        print("[brief] Gemini OK (sans recherche)")
-
-    print("----- DIGEST -----")
-    print(digest)
-    print("------------------")
-
+    items = gather()
+    print(f"[brief] total items collectes : {len(items)}")
+    if not items:
+        raise RuntimeError("Aucun flux RSS lisible.")
+    prompt = INSTRUCTIONS + "\n\nTITRES REELS COLLECTES :\n" + build_context(items)
+    digest = call_gemini(prompt)
+    print("----- DIGEST -----"); print(digest); print("------------------")
     res = send_telegram(digest)
     if not res.get("ok"):
         raise RuntimeError("Echec Telegram : " + json.dumps(res)[:400])

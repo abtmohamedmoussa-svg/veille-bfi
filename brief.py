@@ -11,7 +11,7 @@ Variables d'environnement attendues (secrets GitHub) :
     GEMINI_API_KEY       cle API Google AI Studio (gratuite)
     TELEGRAM_BOT_TOKEN   token du bot @BotFather
     TELEGRAM_CHAT_ID     identifiant du chat/canal Telegram
-    GEMINI_MODEL         (optionnel) defaut : gemini-2.5-flash
+    GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.6-flash")
 """
 
 import os

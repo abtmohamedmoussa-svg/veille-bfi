@@ -6,6 +6,9 @@ on:
     - cron: "0 5 * * *"
   workflow_dispatch:   # bouton "Run workflow" pour tester a la main
 
+permissions:
+  contents: write
+
 jobs:
   envoyer:
     runs-on: ubuntu-latest

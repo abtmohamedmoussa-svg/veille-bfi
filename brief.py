@@ -97,8 +97,9 @@ def fetch_feed(name, url, retries=2):
         title = (it.findtext("title") or "").strip()
         desc = strip_html(it.findtext("description") or "")
         date = (it.findtext("pubDate") or "").strip()
+        link = (it.findtext("link") or "").strip()
         if title:
-            items.append((name, title, desc[:220], date))
+            items.append((name, title, desc[:220], date, link))
         if len(items) >= PER_FEED:
             break
     # Atom
@@ -108,8 +109,11 @@ def fetch_feed(name, url, retries=2):
             title = (e.findtext(ns + "title") or "").strip()
             desc = strip_html(e.findtext(ns + "summary") or e.findtext(ns + "content") or "")
             date = (e.findtext(ns + "updated") or e.findtext(ns + "published") or "").strip()
+            # Atom uses <link href="..."> attribute
+            link_elem = e.find(ns + "link")
+            link = (link_elem.get("href") or "") if link_elem is not None else ""
             if title:
-                items.append((name, title, desc[:220], date))
+                items.append((name, title, desc[:220], date, link))
             if len(items) >= PER_FEED:
                 break
     print(f"[feed] {name} : {len(items)} items")
@@ -124,11 +128,14 @@ def gather():
 
 
 def build_context(items):
+    """Build context with URLs for Gemini."""
     lines = []
-    for name, title, desc, date in items:
+    for name, title, desc, date, link in items:
         line = f"- [{name}] {title}"
         if date:
             line += f" ({date})"
+        if link:
+            line += f" | Source: {link}"
         if desc:
             line += f" — {desc}"
         lines.append(line)
@@ -142,40 +149,50 @@ DAILY_INSTRUCTIONS = f"""Tu es l'assistant de veille d'un responsable de la Banq
 
 A partir UNIQUEMENT des titres reels ci-dessous, redige un brief presse du jour. Priorite : economie, finance, marches, banque ; plus les grands titres politiques/macro (Tunisie + international) utiles a un banquier d'affaires. Ignore people, faits divers, sport, communiques marketing.
 
-REGLES : n'invente AUCUN chiffre ni fait qui ne soit pas dans les titres fournis. Reste factuel et neutre. Chaque puce DOIT contenir un verbe d'action et un chiffre/% si dispo. Pas de puce vide ou de remplissage.
+REGLES CRUCIALES :
+- n'invente AUCUN chiffre ni fait qui ne soit pas dans les titres fournis
+- Reste factuel et neutre
+- Chaque puce DOIT contenir un verbe d'action et un chiffre/% si dispo
+- Pas de puce vide ou de remplissage
+- CITE LA SOURCE ET L'URL après chaque puce (format: [Source](URL))
 
-SORTIE : produis UNIQUEMENT le digest ci-dessous (pas d'intro, pas de liens). Chaque puce = 1 phrase claire et autoportante. Format EXACT :
+SORTIE : produis UNIQUEMENT le digest ci-dessous (pas d'intro, pas de liens). Chaque puce = 1 phrase claire avec SOURCE ET URL. Format EXACT :
 
 🗞️ Brief du {TODAY}
 
 🇹🇳 TUNISIE
-• [titre court] : [1 phrase avec chiffre si present]
+• [titre court] : [1 phrase] — [Source](URL)
 
 🌍 INTERNATIONAL
-• [titre court] : [1 phrase avec chiffre si present]
+• [titre court] : [1 phrase] — [Source](URL)
 
 📈 MARCHÉS & TAUX
-• [mouvement] : [1 phrase avec chiffre si present]
+• [mouvement] : [1 phrase] — [Source](URL)
 """
 
 STRATEGY_INSTRUCTIONS = f"""Tu es l'assistant de veille strategique d'un responsable de la Banque de financement et d'investissement (Attijari Bank Tunisie). Nous sommes le {TODAY}.
 
 A partir UNIQUEMENT des titres reels ci-dessous (24 dernieres heures), redige une "Veille Disruption & Strategie". Un sujet n'entre QUE s'il modifie : la chaine de valeur (un maillon disparait/se deplace), qui capte la marge, la structure de couts (ordre de grandeur), ou la regle du jeu (reglementaire/techno/acces marche). EXCLUS : levees sans structure, exits, prix, nominations, classements, partenariats vides, communiques, cours de bourse.
 
-REGLES : n'invente AUCUN chiffre absent des titres. Qualite > quantite ; un bloc peut rester vide. Plafond 5 sujets par bloc. Chaque puce DOIT contenir un mecanisme clair (pas juste "X leve Y€").
+REGLES CRUCIALES :
+- n'invente AUCUN chiffre absent des titres
+- Qualite > quantite ; un bloc peut rester vide
+- Plafond 5 sujets par bloc
+- Chaque puce DOIT contenir un mecanisme clair (pas juste "X leve Y€")
+- CITE LA SOURCE ET L'URL après chaque puce (format: [Source](URL))
 
-SORTIE : produis UNIQUEMENT le digest ci-dessous (pas de liens). Chaque puce = 1 a 2 phrases (quoi + mecanisme + chiffre si dispo). Format EXACT :
+SORTIE : produis UNIQUEMENT le digest ci-dessous (pas de liens externes). Chaque puce = 1 a 2 phrases avec SOURCE ET URL. Format EXACT :
 
 📊 Veille — {TODAY}
 
 A · BANQUE
-• [Acteur] : [1-2 phrases avec mecanisme]
+• [Acteur] : [1-2 phrases avec mecanisme] — [Source](URL)
 
 B · SECTEURS
-• [Acteur] : [1-2 phrases avec mecanisme]
+• [Acteur] : [1-2 phrases avec mecanisme] — [Source](URL)
 
 C · MACRO
-• [Etat] : [1-2 phrases avec mecanisme]
+• [Etat] : [1-2 phrases avec mecanisme] — [Source](URL)
 """
 
 INSTRUCTIONS = DAILY_INSTRUCTIONS if MODE == "daily" else STRATEGY_INSTRUCTIONS
@@ -271,9 +288,13 @@ def save_briefs(briefs):
 
 
 def generate_html(briefs):
-    """Generate HTML page with both daily and strategy briefs."""
+    """Generate HTML page with both daily and strategy briefs (with links)."""
     daily_digest = briefs.get("daily", {}).get("digest", "(Pas de brief quotidien aujourd'hui)")
     strategy_digest = briefs.get("strategy", {}).get("digest", "(Pas de veille stratégique aujourd'hui)")
+
+    # Convert markdown links [text](url) to HTML links in digest
+    daily_digest = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2" target="_blank">\1</a>', daily_digest)
+    strategy_digest = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2" target="_blank">\1</a>', strategy_digest)
 
     html = f"""<title>Brief Quotidien & Veille Stratégique</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -301,6 +322,8 @@ def generate_html(briefs):
   .sec-head .flag.alt{{background:var(--hot)}}
   .sec-rule{{height:1px;background:var(--line-strong);border:0;margin:0 0 16px}}
   .digest-raw{{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:15px 17px;margin-bottom:12px;box-shadow:var(--shadow);font-family:"IBM Plex Mono",monospace;font-size:13px;white-space:pre-wrap;word-break:break-word;color:var(--muted)}}
+  .digest-raw a{{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-soft)}}
+  .digest-raw a:hover{{border-bottom-color:var(--accent)}}
   .foot{{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--faint);display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:space-between}}
   a:focus-visible{{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}}
 </style>

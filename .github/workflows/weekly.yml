@@ -1,9 +1,9 @@
-name: Veille Hebdo
+name: Veille Stratégique Quotidienne
 
 on:
   schedule:
-    # 20:00 UTC lundi = 21:00 Tunis (UTC+1) le lundi.
-    - cron: "0 20 * * 1"
+    # 05:00 UTC = 06:00 Tunis (UTC+1) tous les jours.
+    - cron: "0 5 * * *"
   workflow_dispatch:   # bouton "Run workflow" pour tester a la main
 
 jobs:
@@ -14,9 +14,22 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Envoyer la veille hebdomadaire
+      - name: Générer et envoyer la veille stratégique
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python brief.py weekly
+        run: python brief.py strategy
+      - name: ✅ Succès
+        if: success()
+        run: echo "[OK] Veille Stratégique envoyée (HTML + Telegram + Archive)"
+      - name: ❌ Erreur — Notifier Telegram
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GITHUB_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          curl -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -H "Content-Type: application/json" \
+            -d "{\"chat_id\": ${TELEGRAM_CHAT_ID}, \"text\": \"❌ Veille Stratégique ÉCHOUÉE\\nVérifier: ${GITHUB_RUN_URL}\"}"

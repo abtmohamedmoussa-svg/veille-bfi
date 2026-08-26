@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Brief Quotidien / Veille Disruption & Stratégie -> Telegram + HTML + Archive.
-Lit flux RSS (frais, sans quota) -> Gemini rédige -> HTML généré dynamique + archive JSON.
+Brief Quotidien / Veille Stratégique -> Telegram + Page HTML fusionnée + Archive.
+RSS feeds -> Gemini -> HTML dynamique + briefs.json + archive.json
 Aucune dépendance externe (stdlib only).
 
-Usage : python brief.py daily        (Brief quotidien 07:00 Tunis)
-        python brief.py strategy     (Veille stratégique quotidienne 21:00 Tunis)
+Usage : python brief.py daily        (Brief quotidien 06:00 Tunis)
+        python brief.py strategy     (Veille stratégique 06:00 Tunis)
 """
 
 import os
@@ -28,13 +28,15 @@ GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
 TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
 GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-3.6-flash")
+GITHUB_PAGES_URL = os.environ.get("GITHUB_PAGES_URL", "https://abtmohamedmoussa-svg.github.io/veille-bfi/")
 
 TODAY = datetime.date.today().strftime("%d/%m/%Y")
 TODAY_ISO = datetime.date.today().isoformat()
 
 UA = "Mozilla/5.0 (compatible; VeilleBot/1.0)"
+BRIEFS_FILE = Path("briefs.json")
 ARCHIVE_FILE = Path("archive.json")
-LATEST_HTML = Path("index.html")
+INDEX_HTML = Path("index.html")
 
 # --------------------------------------------------------------------------
 # SOURCES (flux RSS)
@@ -60,7 +62,7 @@ STRATEGY_FEEDS = [
 ]
 
 FEEDS = DAILY_FEEDS if MODE == "daily" else STRATEGY_FEEDS
-PER_FEED = 6  # items max par flux
+PER_FEED = 6
 
 # --------------------------------------------------------------------------
 # COLLECTE RSS
@@ -99,7 +101,7 @@ def fetch_feed(name, url, retries=2):
             items.append((name, title, desc[:220], date))
         if len(items) >= PER_FEED:
             break
-    # Atom (si pas de <item>)
+    # Atom
     if not items:
         ns = "{http://www.w3.org/2005/Atom}"
         for e in root.iter(ns + "entry"):
@@ -142,7 +144,7 @@ A partir UNIQUEMENT des titres reels ci-dessous, redige un brief presse du jour.
 
 REGLES : n'invente AUCUN chiffre ni fait qui ne soit pas dans les titres fournis. Reste factuel et neutre. Chaque puce DOIT contenir un verbe d'action et un chiffre/% si dispo. Pas de puce vide ou de remplissage.
 
-SORTIE : produis UNIQUEMENT le digest ci-dessous (pas d'intro, pas de liens). Chaque puce = 1 phrase claire et autoportante. Format EXACT, sans deviation :
+SORTIE : produis UNIQUEMENT le digest ci-dessous (pas d'intro, pas de liens). Chaque puce = 1 phrase claire et autoportante. Format EXACT :
 
 🗞️ Brief du {TODAY}
 
@@ -225,8 +227,11 @@ def call_gemini(prompt, max_retries=4):
     raise RuntimeError("Gemini a echoue : " + str(last))
 
 
-def send_telegram(text):
-    """Send message to Telegram. Returns (ok, error_msg)."""
+def send_telegram(text, page_url=None):
+    """Send message to Telegram with optional page link. Returns (ok, error_msg)."""
+    if page_url:
+        text += f"\n\n🔗 Page complète : {page_url}"
+
     url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
     payload = {"chat_id": TELEGRAM_CHAT_ID, "text": text[:4090],
                "disable_web_page_preview": True}
@@ -241,31 +246,36 @@ def send_telegram(text):
         return (False, str(e))
 
 # --------------------------------------------------------------------------
-# HTML GENERATION
+# BRIEFS MANAGER
 # --------------------------------------------------------------------------
 
-def generate_html(digest, mode, date, items_count):
-    """Generate dynamic HTML page for the brief."""
-    day_name = datetime.datetime.strptime(date, "%d/%m/%Y").strftime("%A").capitalize()
-    if day_name == "Monday":
-        day_name = "Monday (lundi)"
-    elif day_name == "Tuesday":
-        day_name = "Tuesday (mardi)"
-    elif day_name == "Wednesday":
-        day_name = "Wednesday (mercredi)"
-    elif day_name == "Thursday":
-        day_name = "Thursday (jeudi)"
-    elif day_name == "Friday":
-        day_name = "Friday (vendredi)"
-    elif day_name == "Saturday":
-        day_name = "Saturday (samedi)"
-    elif day_name == "Sunday":
-        day_name = "Sunday (dimanche)"
+def load_briefs():
+    """Load briefs from JSON, or return empty dict."""
+    if BRIEFS_FILE.exists():
+        try:
+            with open(BRIEFS_FILE, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except:
+            return {}
+    return {}
 
-    title = "Brief Quotidien" if mode == "daily" else "Veille Stratégique"
-    subtitle = "revue de presse nationale & internationale pour la Banque de financement et d'investissement."
 
-    html = f"""<title>{title}</title>
+def save_briefs(briefs):
+    """Save briefs to JSON."""
+    try:
+        with open(BRIEFS_FILE, "w", encoding="utf-8") as f:
+            json.dump(briefs, f, ensure_ascii=False, indent=2)
+        print(f"[briefs] sauvegarde OK")
+    except Exception as e:
+        print(f"[briefs] erreur : {e}")
+
+
+def generate_html(briefs):
+    """Generate HTML page with both daily and strategy briefs."""
+    daily_digest = briefs.get("daily", {}).get("digest", "(Pas de brief quotidien aujourd'hui)")
+    strategy_digest = briefs.get("strategy", {}).get("digest", "(Pas de veille stratégique aujourd'hui)")
+
+    html = f"""<title>Brief Quotidien & Veille Stratégique</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -297,25 +307,30 @@ def generate_html(digest, mode, date, items_count):
 
 <div class="wrap">
   <header class="masthead">
-    <div class="kicker"><span>Éco · Finance · Marchés</span><span class="edition">{title}</span></div>
-    <h1>{title}</h1>
-    <div class="sub"><b>{day_name} {date}</b> — {subtitle}</div>
+    <div class="kicker"><span>Éco · Finance · Marchés</span><span class="edition">Édition du jour</span></div>
+    <h1>Brief & Veille</h1>
+    <div class="sub"><b>{TODAY}</b> — revue de presse & veille stratégique pour la Banque de financement et d'investissement.</div>
   </header>
 
   <section class="sec">
-    <div class="sec-head"><span class="flag">Contenu généré</span><h2>Digest ({items_count} sources)</h2></div>
+    <div class="sec-head"><span class="flag">Matin</span><h2>Brief Quotidien</h2></div>
     <hr class="sec-rule">
-    <div class="digest-raw">{digest}</div>
+    <div class="digest-raw">{daily_digest}</div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head"><span class="flag alt">Stratégique</span><h2>Veille Disruption & Stratégie</h2></div>
+    <hr class="sec-rule">
+    <div class="digest-raw">{strategy_digest}</div>
   </section>
 
   <div class="foot">
     <span>Brief interne · usage BFI</span>
-    <span>Généré le {date} à partir de {items_count} articles RSS</span>
+    <span>Généré le {TODAY}</span>
   </div>
 </div>
 """
     return html
-
 
 # --------------------------------------------------------------------------
 # ARCHIVE
@@ -348,11 +363,10 @@ def append_archive(digest, mode, items_count):
     entry = {
         "date": TODAY_ISO,
         "mode": mode,
-        "digest": digest[:500],  # Summary only to keep file size reasonable
+        "digest": digest[:500],
         "sources": items_count,
     }
     archive.append(entry)
-    # Keep last 90 days max
     archive = archive[-90:]
     save_archive(archive)
 
@@ -367,7 +381,7 @@ def main():
     print(f"[brief] total items collectes : {len(items)}")
 
     if len(items) < 10:
-        error_msg = f"⚠️ ALERTE : Seulement {len(items)} articles collectés (< 10). Qualité compromise. Vérifier les sources RSS."
+        error_msg = f"⚠️ ALERTE : Seulement {len(items)} articles collectés (< 10). Qualité compromise."
         print(f"[brief] {error_msg}")
         send_telegram(error_msg)
         if not items:
@@ -387,25 +401,34 @@ def main():
     print(digest)
     print("------------------")
 
-    # Send to Telegram
-    ok, err = send_telegram(digest)
-    if not ok:
-        error_msg = f"❌ ERREUR Telegram : {err}"
-        print(f"[brief] {error_msg}")
-        raise RuntimeError(error_msg)
-    print("[brief] Telegram : envoye OK")
+    # Load briefs, update current mode, save
+    briefs = load_briefs()
+    briefs[MODE] = {
+        "digest": digest,
+        "date": TODAY_ISO,
+        "sources": len(items)
+    }
+    save_briefs(briefs)
 
-    # Generate and save HTML
+    # Generate HTML
+    html = generate_html(briefs)
     try:
-        html = generate_html(digest, MODE, TODAY, len(items))
-        with open(LATEST_HTML, "w", encoding="utf-8") as f:
+        with open(INDEX_HTML, "w", encoding="utf-8") as f:
             f.write(html)
-        print(f"[html] sauvegarde OK : {LATEST_HTML}")
+        print(f"[html] sauvegarde OK : {INDEX_HTML}")
     except Exception as e:
         print(f"[html] erreur : {e}")
 
     # Archive
     append_archive(digest, MODE, len(items))
+
+    # Send to Telegram with link
+    ok, err = send_telegram(digest, GITHUB_PAGES_URL)
+    if not ok:
+        error_msg = f"❌ ERREUR Telegram : {err}"
+        print(f"[brief] {error_msg}")
+        raise RuntimeError(error_msg)
+    print("[brief] Telegram : envoye OK (avec lien page)")
 
 
 if __name__ == "__main__":

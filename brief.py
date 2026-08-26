@@ -17,6 +17,7 @@ import time
 import datetime
 import urllib.request
 import urllib.error
+import urllib.parse
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
@@ -244,6 +245,41 @@ def call_gemini(prompt, max_retries=4):
     raise RuntimeError("Gemini a echoue : " + str(last))
 
 
+def add_translate_links(digest):
+    """Add French translation links for English sources (Google Translate)."""
+    ENGLISH_SOURCES = {
+        "WSJ Markets",
+        "Rest of World",
+        "Finextra",
+        "TechCabal",
+        "Sifted",
+        "Wamda"  # Multilingual but often English content
+    }
+
+    for source in ENGLISH_SOURCES:
+        # Pattern: [Source](URL) -> [Source](URL) | [FR](translate_URL)
+        pattern = rf'(\[{re.escape(source)}\]\(([^)]+)\))'
+
+        def add_fr_link(match):
+            original_link = match.group(1)  # [Source](URL)
+            url = match.group(2)  # just the URL
+            translate_url = f"https://translate.google.com/translate?u={url}&hl=fr"
+            return f"{original_link} | [FR]({translate_url})"
+
+        digest = re.sub(pattern, add_fr_link, digest)
+
+    return digest
+
+
+def strip_urls_from_digest(digest):
+    """Strip URLs from digest for Telegram (keep source names only, remove FR links)."""
+    # Remove [FR](translate_URL) parts
+    digest = re.sub(r' \| \[[^\]]+\]\([^)]+\)', '', digest)
+    # Then remove all [Text](URL) -> Text
+    digest = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'\1', digest)
+    return digest
+
+
 def send_telegram(text, page_url=None):
     """Send message to Telegram with optional page link. Returns (ok, error_msg)."""
     if page_url:
@@ -424,6 +460,9 @@ def main():
     print(digest)
     print("------------------")
 
+    # Add French translation links for English sources
+    digest = add_translate_links(digest)
+
     # Load briefs, update current mode, save
     briefs = load_briefs()
     briefs[MODE] = {
@@ -445,8 +484,9 @@ def main():
     # Archive
     append_archive(digest, MODE, len(items))
 
-    # Send to Telegram with link
-    ok, err = send_telegram(digest, GITHUB_PAGES_URL)
+    # Send to Telegram with link (strip URLs for clean Telegram message)
+    telegram_digest = strip_urls_from_digest(digest)
+    ok, err = send_telegram(telegram_digest, GITHUB_PAGES_URL)
     if not ok:
         error_msg = f"❌ ERREUR Telegram : {err}"
         print(f"[brief] {error_msg}")

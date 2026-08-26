@@ -28,7 +28,7 @@ jobs:
           git config --global user.name "GitHub Actions"
           git add index.html briefs.json archive.json 2>/dev/null || true
           git commit -m "🔄 Update briefs: $(date +%Y-%m-%d)" || true
-          git push
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git main
       - name: ✅ Succès
         if: success()
         run: echo "[OK] Veille Stratégique envoyée + fichiers pushés"

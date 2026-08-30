@@ -1,0 +1,14 @@
+{
+ "utilises": [
+  "L06"
+ ],
+ "cycle": 1,
+ "historique": [
+  {
+   "date": "2026-08-30",
+   "id": "L06",
+   "domaine": "communication_leadership",
+   "genere": false
+  }
+ ]
+}

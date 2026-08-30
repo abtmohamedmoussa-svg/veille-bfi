@@ -1,7 +1,8 @@
 {
  "utilises": [
   "L06",
-  "L29"
+  "L29",
+  "L32"
  ],
  "cycle": 1,
  "historique": [
@@ -14,6 +15,12 @@
   {
    "date": "2026-08-30",
    "id": "L29",
+   "domaine": "communication_leadership",
+   "genere": true
+  },
+  {
+   "date": "2026-08-30",
+   "id": "L32",
    "domaine": "communication_leadership",
    "genere": true
   }

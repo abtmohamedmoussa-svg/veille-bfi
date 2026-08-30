@@ -50,7 +50,7 @@ MENTIONS_STATUT = {
 
 # Free tier Gemini : seuls les modeles Flash / Flash-Lite y sont eligibles.
 # Les identifiants evoluent : verifier le model ID exact dans Google AI Studio.
-MODELE = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
+MODELE = os.environ.get("GEMINI_MODEL", "gemini-3.6-flash")
 ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent"
 MAX_TELEGRAM = 3900  # marge sous la limite de 4096 caracteres
 
@@ -150,9 +150,12 @@ def developper(entree):
         consigne_statut=consigne,
     )
 
+    # maxOutputTokens genereux : sur les modeles a raisonnement, les jetons de
+    # reflexion sont decomptes de cette enveloppe. Trop bas, la reponse revient vide.
+    # temperature volontairement absente : ignoree par les modeles Gemini 3.x.
     charge = {
         "contents": [{"parts": [{"text": corps}]}],
-        "generationConfig": {"temperature": 0.7, "maxOutputTokens": 1200},
+        "generationConfig": {"maxOutputTokens": 4000},
     }
 
     # Le free tier renvoie 429 quand une limite de debit est atteinte : backoff exponentiel.
@@ -178,9 +181,13 @@ def developper(entree):
         if not candidats:  # reponse filtree ou vide
             print("[Gemini] aucune reponse exploitable", file=sys.stderr)
             return None
+        motif = candidats[0].get("finishReason", "?")
         parts = candidats[0].get("content", {}).get("parts", [])
-        texte = "\n".join(p.get("text", "") for p in parts if "text" in p)
-        return texte.strip() or None
+        texte = "\n".join(p.get("text", "") for p in parts if "text" in p).strip()
+        if not texte:
+            print(f"[Gemini] texte vide, finishReason={motif}", file=sys.stderr)
+            return None
+        return texte
     return None
 
 
@@ -227,7 +234,10 @@ def main():
     message = composer(entree, domaine_affiche, repli, jour, corps)
     envoyer(message)
 
-    etat["utilises"].append(entree["id"])
+    # Si la generation a echoue, l'entree n'est pas consommee : elle repassera
+    # dans le tirage plutot que d'etre brulee sur un message degrade.
+    if genere:
+        etat["utilises"].append(entree["id"])
     etat["historique"].append(
         {
             "date": jour.strftime("%Y-%m-%d"),

@@ -1,0 +1,58 @@
+# =============================================================================
+#  Principe du jour — 1 envoi quotidien a 21h32, heure de Tunis
+#
+#  La minute 32 est volontaire : GitHub documente le debut de chaque heure et
+#  les minutes rondes comme periodes de forte charge, ou les runs planifies
+#  sont retardes voire abandonnes. Ne pas remettre :00 ou :30.
+#
+#  Secrets attendus (Settings > Secrets and variables > Actions) :
+#    TELEGRAM_BOT_TOKEN   bot existant (BotFather)
+#    TELEGRAM_CHAT_ID     identifiant de la conversation
+#    GEMINI_API_KEY       cle Google AI Studio, free tier (deja presente si
+#                         installe dans le depot Veille BFI)
+#
+#  Aucune dependance externe : bibliotheque standard uniquement, comme brief.py.
+# =============================================================================
+name: Principe du jour
+
+on:
+  schedule:
+    - cron: "32 21 * * *"
+      timezone: "Africa/Tunis"
+  workflow_dispatch:
+
+concurrency:
+  group: principe
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  envoi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Envoi du principe du jour
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python principe.py
+
+      - name: Save state
+        run: |
+          git config user.name "principe-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add state_principe.json
+          git diff --staged --quiet || git commit -m "Update state principe"
+          git pull --rebase
+          git push

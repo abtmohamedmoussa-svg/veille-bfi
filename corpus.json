@@ -1,0 +1,2937 @@
+{
+ "_meta": {
+  "version": "corpus-complet",
+  "date": "2026-08-30",
+  "nb_entrees": 364,
+  "rotation": {
+   "0": "macro",
+   "1": "marche_credit",
+   "2": "entreprise_strategie",
+   "3": "management_organisation",
+   "4": "influence_negociation",
+   "5": "decision_biais_idees_recues",
+   "6": "communication_leadership"
+  },
+  "statuts": {
+   "etabli": "Consensus academique ou fait historique documente.",
+   "debat_academique": "Theorie legitime mais contestee. La controverse fait partie du contenu.",
+   "praticien": "Heuristique de terrain sans validation experimentale.",
+   "invalide": "Enseigne massivement, non soutenu par les donnees."
+  },
+  "regle_generation": "Seuls les faits presents dans 'ancrage' peuvent etre repris. Aucun chiffre, date, citation ou attribution supplementaire."
+ },
+ "entrees": [
+  {
+   "id": "M01",
+   "titre": "Loi de Goodhart",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Charles Goodhart, economiste a la Banque d'Angleterre, 1975. Quand une mesure devient un objectif, elle cesse d'etre une bonne mesure.",
+   "angle": "Objectifs commerciaux reseau, ratios prudentiels pilotes en date d'arrete, KPI de production credit."
+  },
+  {
+   "id": "M02",
+   "titre": "Courbe de Laffer",
+   "categorie": "macro",
+   "statut": "debat_academique",
+   "ancrage": "Arthur Laffer, annees 1970. Au-dela d'un certain taux, une hausse de la pression fiscale reduit la recette totale.",
+   "angle": "Tarification bancaire, taux debiteurs et elasticite de la demande de credit."
+  },
+  {
+   "id": "M03",
+   "titre": "Triangle d'incompatibilite de Mundell-Fleming",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Robert Mundell et Marcus Fleming, annees 1960. Change fixe, liberte des mouvements de capitaux et politique monetaire autonome : trois objectifs, deux atteignables au maximum.",
+   "angle": "Regime de change tunisien, controle des changes, marge de manoeuvre de la BCT."
+  },
+  {
+   "id": "M04",
+   "titre": "Dilemme de Triffin",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Robert Triffin, Gold and the Dollar Crisis, 1960. Le pays emetteur de la monnaie de reserve mondiale doit fournir des liquidites au monde, ce qui degrade a terme la confiance dans sa propre monnaie.",
+   "angle": "Dependance aux reserves en devises, financement exterieur, correspondants bancaires."
+  },
+  {
+   "id": "M05",
+   "titre": "Paradoxe de Jevons",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "William Stanley Jevons, The Coal Question, 1865. Une hausse de l'efficacite d'usage d'une ressource augmente sa consommation totale au lieu de la reduire.",
+   "angle": "Digitalisation et cout de traitement : la baisse du cout unitaire fait exploser le volume, pas la charge."
+  },
+  {
+   "id": "M06",
+   "titre": "Loi de Say",
+   "categorie": "macro",
+   "statut": "debat_academique",
+   "ancrage": "Jean-Baptiste Say, Traite d'economie politique, 1803. L'offre cree sa propre demande.",
+   "angle": "Debat recurrent sur l'offre de credit : le credit suit-il l'activite ou la precede-t-il ?"
+  },
+  {
+   "id": "M07",
+   "titre": "Equivalence ricardienne",
+   "categorie": "macro",
+   "statut": "debat_academique",
+   "ancrage": "Formalisee par Robert Barro, 1974, a partir d'une intuition de David Ricardo. Les agents anticipent que la dette publique d'aujourd'hui est l'impot de demain et epargnent en consequence.",
+   "angle": "Comportement d'epargne des menages en periode de deficit, collecte des depots."
+  },
+  {
+   "id": "M08",
+   "titre": "Courbe de Phillips",
+   "categorie": "macro",
+   "statut": "debat_academique",
+   "ancrage": "A. W. Phillips, 1958. Relation inverse observee entre chomage et inflation, contestee depuis la stagflation des annees 1970.",
+   "angle": "Lecture des arbitrages de banque centrale, anticipation des mouvements de taux directeurs."
+  },
+  {
+   "id": "M09",
+   "titre": "Regle de Taylor",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "John Taylor, 1993. Regle simple liant le taux directeur a l'ecart d'inflation et a l'ecart de production.",
+   "angle": "Prevision du taux directeur BCT, calage des taux de cession interne."
+  },
+  {
+   "id": "M10",
+   "titre": "Theorie quantitative de la monnaie",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Equation des echanges formalisee par Irving Fisher : MV = PT.",
+   "angle": "Lecture des agregats monetaires, refinancement bancaire et transmission a l'inflation."
+  },
+  {
+   "id": "M11",
+   "titre": "Paradoxe de l'epargne",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Popularise par John Maynard Keynes. Ce qui est rationnel pour un agent isole devient destructeur si tous l'adoptent simultanement.",
+   "angle": "Comportement des depots en periode de stress, sophisme de composition applique au risque."
+  },
+  {
+   "id": "M12",
+   "titre": "Trappe a liquidite",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Concept keynesien. A taux tres bas, la politique monetaire perd son effet : la liquidite injectee est thesaurisee au lieu d'etre pretee.",
+   "angle": "Surliquidite bancaire sans reprise du credit, placement en titres souverains par defaut."
+  },
+  {
+   "id": "M13",
+   "titre": "Effet d'eviction",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "L'emprunt public capte l'epargne disponible et rencherit ou rationne le financement du secteur prive.",
+   "angle": "Arbitrage BTA contre credit corporate dans le bilan bancaire tunisien."
+  },
+  {
+   "id": "M14",
+   "titre": "Effet Cantillon",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Richard Cantillon, XVIIIe siecle. La monnaie nouvelle n'irrigue pas l'economie uniformement : les premiers a la recevoir en tirent un avantage relatif.",
+   "angle": "Qui capte la liquidite d'un dispositif de refinancement, et dans quel ordre."
+  },
+  {
+   "id": "M15",
+   "titre": "Loi d'Okun",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Arthur Okun, 1962. Relation empirique entre variation du chomage et ecart de croissance.",
+   "angle": "Calibrage des scenarios macro pour le provisionnement prospectif."
+  },
+  {
+   "id": "M16",
+   "titre": "Avantage comparatif",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "David Ricardo, 1817. Un pays gagne a se specialiser meme s'il est moins performant sur tout, des lors que ses couts d'opportunite different.",
+   "angle": "Specialisation d'une banque sur ses metiers, arbitrage make or buy."
+  },
+  {
+   "id": "M17",
+   "titre": "Tragedie des communs",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Garrett Hardin, revue Science, 1968. Une ressource en acces libre est surexploitee car le cout est collectif et le gain individuel.",
+   "angle": "Surendettement d'un debiteur multi-bancaire : chaque preteur a interet a servir, le systeme paie."
+  },
+  {
+   "id": "M18",
+   "titre": "Theoreme de Coase",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Ronald Coase, 1960. En l'absence de couts de transaction, l'allocation des droits de propriete n'affecte pas l'efficacite du resultat.",
+   "angle": "Negociation des suretes, restructuration de dette multi-creanciers."
+  },
+  {
+   "id": "M19",
+   "titre": "Maladie hollandaise",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Expression forgee par The Economist en 1977 a propos des Pays-Bas apres la decouverte de gaz de Groningue. Une manne exportatrice apprecie le change et etouffe l'industrie.",
+   "angle": "Economies mono-exportatrices, concentration sectorielle du portefeuille."
+  },
+  {
+   "id": "M20",
+   "titre": "Loi de Gresham",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Attribuee a Thomas Gresham, formalisee au XIXe siecle. La mauvaise monnaie chasse la bonne quand un taux de conversion est impose.",
+   "angle": "Marche parallele des devises, arbitrage entre canaux formels et informels."
+  },
+  {
+   "id": "M21",
+   "titre": "Destruction creatrice",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Joseph Schumpeter, Capitalisme, socialisme et democratie, 1942. L'innovation detruit les rentes existantes en creant les suivantes.",
+   "angle": "Paiement instantane contre commissions traditionnelles, neobanques contre reseau physique."
+  },
+  {
+   "id": "M22",
+   "titre": "Hypothese d'instabilite financiere",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Hyman Minsky. La stabilite prolongee encourage la prise de risque et engendre l'instabilite ; sequence financement couvert, speculatif, Ponzi.",
+   "angle": "Lecture d'un cycle de credit, relachement des covenants en haut de cycle."
+  },
+  {
+   "id": "M23",
+   "titre": "Ancrage nominal et hyperinflation",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Episodes documentes : Allemagne 1923, Zimbabwe 2008. La perte d'ancrage des anticipations rend l'inflation auto-entretenue.",
+   "angle": "Indexation des contrats, duree des engagements a taux fixe."
+  },
+  {
+   "id": "M24",
+   "titre": "Le choc Volcker",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Paul Volcker, president de la Fed, 1979-1982. Resorption de l'inflation americaine au prix d'une recession severe et de taux tres eleves.",
+   "angle": "Cout social d'une desinflation, effet d'un choc de taux sur un stock de credits."
+  },
+  {
+   "id": "M25",
+   "titre": "Seigneuriage",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Revenu tire par l'emetteur de la difference entre la valeur faciale de la monnaie et son cout de production.",
+   "angle": "Monnaie centrale, monnaie scripturale bancaire, monnaie electronique et partage de la rente."
+  },
+  {
+   "id": "M26",
+   "titre": "Hysterese du chomage",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Idee selon laquelle un chomage eleve prolonge degrade durablement le capital humain et devient structurel.",
+   "angle": "Scenarios de stress a horizon pluriannuel, risque sur le portefeuille retail."
+  },
+  {
+   "id": "M27",
+   "titre": "Parite de pouvoir d'achat",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Le taux de change devrait a long terme egaliser le pouvoir d'achat entre deux monnaies. Illustration populaire : l'indice Big Mac de The Economist.",
+   "angle": "Valorisation d'une devise, projection de change dans un business plan."
+  },
+  {
+   "id": "M28",
+   "titre": "Parite des taux d'interet couverte",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Relation d'arbitrage entre taux d'interet de deux devises et points de terme sur le change a terme.",
+   "angle": "Pricing du change a terme, cout de couverture pour un importateur."
+  },
+  {
+   "id": "M29",
+   "titre": "Multiplicateur budgetaire",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Effet sur le PIB d'une variation d'une unite de depense publique ; son ampleur depend du regime economique.",
+   "angle": "Anticipation de l'activite corporate suite a un budget de l'Etat."
+  },
+  {
+   "id": "M30",
+   "titre": "Dominance budgetaire",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Situation ou les besoins de financement de l'Etat contraignent la politique monetaire et la subordonnent de fait.",
+   "angle": "Exposition souveraine du bilan bancaire, nexus banque-Etat."
+  },
+  {
+   "id": "C01",
+   "titre": "Selection adverse",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "George Akerlof, The Market for Lemons, 1970. L'asymetrie d'information conduit les meilleurs risques a quitter le marche.",
+   "angle": "Un taux eleve n'attire que les emprunteurs les plus risques : la tarification ne compense pas tout."
+  },
+  {
+   "id": "C02",
+   "titre": "Alea moral",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Le fait d'etre protege contre une consequence modifie le comportement de l'agent protege.",
+   "angle": "Garanties publiques, fonds de garantie, comportement du dirigeant apres octroi."
+  },
+  {
+   "id": "C03",
+   "titre": "Theorie du signal",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Michael Spence, 1973. Un signal n'est credible que s'il est couteux a produire pour un mauvais type.",
+   "angle": "Apport en fonds propres, caution personnelle, audit externe comme signaux de qualite."
+  },
+  {
+   "id": "C04",
+   "titre": "Theorie de l'agence",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Michael Jensen et William Meckling, 1976. Divergence d'interet entre mandant et mandataire, et couts engages pour la contenir.",
+   "angle": "Covenants, reporting, clauses de non-distribution : la mecanique contractuelle du controle."
+  },
+  {
+   "id": "C05",
+   "titre": "Theoreme de Modigliani-Miller",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Franco Modigliani et Merton Miller, 1958. En marches parfaits, la structure de financement n'affecte pas la valeur de l'entreprise. Les hypotheses sont le vrai sujet.",
+   "angle": "Justification economique du levier : fiscalite, couts de faillite, asymetrie d'information."
+  },
+  {
+   "id": "C06",
+   "titre": "MEDAF",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "William Sharpe et John Lintner, 1964. Seul le risque non diversifiable est remunere.",
+   "angle": "Cout des fonds propres, calcul de rentabilite ajustee du risque."
+  },
+  {
+   "id": "C07",
+   "titre": "Efficience des marches",
+   "categorie": "marche_credit",
+   "statut": "debat_academique",
+   "ancrage": "Eugene Fama, 1970. Trois formes : faible, semi-forte, forte.",
+   "angle": "Ce que le cours d'une action bancaire integre deja, et ce qu'il n'integre pas."
+  },
+  {
+   "id": "C08",
+   "titre": "Marche aleatoire",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Louis Bachelier, 1900 ; popularise par Burton Malkiel, A Random Walk Down Wall Street, 1973.",
+   "angle": "Limites de l'analyse technique, illusion de la sequence sur un marche etroit."
+  },
+  {
+   "id": "C09",
+   "titre": "Ratio de Sharpe",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "William Sharpe. Exces de rendement rapporte a la volatilite.",
+   "angle": "Comparaison de performances, et pourquoi un ratio eleve peut masquer un risque de queue."
+  },
+  {
+   "id": "C10",
+   "titre": "Black-Scholes",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Fischer Black, Myron Scholes et Robert Merton, 1973. Valorisation d'option par replication.",
+   "angle": "Pricing des options de change, comprehension de la volatilite implicite."
+  },
+  {
+   "id": "C11",
+   "titre": "Modele structurel de Merton",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Robert Merton, 1974. Les fonds propres d'une entreprise endettee s'analysent comme une option d'achat sur l'actif.",
+   "angle": "Lecture optionnelle du risque de credit, distance au defaut."
+  },
+  {
+   "id": "C12",
+   "titre": "Z-score d'Altman",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Edward Altman, 1968. Score de defaillance construit sur une combinaison de ratios comptables.",
+   "angle": "Limites d'un score sur un referentiel comptable different de celui d'origine."
+  },
+  {
+   "id": "C13",
+   "titre": "Value at Risk et ses angles morts",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Popularisee par la methodologie RiskMetrics de J.P. Morgan au milieu des annees 1990. La VaR indique un seuil, pas ce qui se passe au-dela.",
+   "angle": "Pourquoi l'expected shortfall a ete introduit, et ce qu'un comite des risques doit reellement lire."
+  },
+  {
+   "id": "C14",
+   "titre": "Duration et convexite",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Sensibilite d'un prix obligataire aux taux, et courbure de cette sensibilite.",
+   "angle": "Gestion actif-passif, portefeuille de BTA, impact d'un choc de taux sur les fonds propres."
+  },
+  {
+   "id": "C15",
+   "titre": "Modele de Diamond-Dybvig",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Douglas Diamond et Philip Dybvig, 1983. La transformation de maturite rend la banque structurellement vulnerable a une panique auto-realisatrice.",
+   "angle": "Justification economique de l'assurance des depots et du preteur en dernier ressort."
+  },
+  {
+   "id": "C16",
+   "titre": "Too big to fail",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Doctrine selon laquelle certains etablissements ne peuvent etre laisses en defaut sans risque systemique ; a l'origine des surcharges en capital pour les etablissements systemiques.",
+   "angle": "Concentration bancaire, resolution, cout implicite de la garantie publique."
+  },
+  {
+   "id": "C17",
+   "titre": "Courbe des taux inversee",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "L'inversion de la courbe des taux americaine a precede la plupart des recessions d'apres-guerre, ce qui en fait un indicateur avance suivi.",
+   "angle": "Signal de retournement, et pourquoi il fonctionne mal sur un marche obligataire peu profond."
+  },
+  {
+   "id": "C18",
+   "titre": "Carry trade",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Emprunter en devise a taux bas pour placer en devise a taux eleve. Le rendement est regulier, la perte est brutale.",
+   "angle": "Endettement en devise d'un client dont les revenus sont en dinars."
+  },
+  {
+   "id": "C19",
+   "titre": "Malediction du vainqueur",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Capen, Clapp et Campbell, 1971, a partir des encheres de permis petroliers. Celui qui remporte une enchere a valeur commune est probablement celui qui a le plus surestime l'actif.",
+   "angle": "Appels d'offres de financement, guerre des prix sur une syndication."
+  },
+  {
+   "id": "C20",
+   "titre": "Enigme de la prime de risque",
+   "categorie": "marche_credit",
+   "statut": "debat_academique",
+   "ancrage": "Rajnish Mehra et Edward Prescott, 1985. L'ecart historique de rendement entre actions et actifs sans risque est trop eleve pour etre explique par les modeles standards.",
+   "angle": "Allocation d'actifs, valorisation d'une participation."
+  },
+  {
+   "id": "C21",
+   "titre": "Effet de levier",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Le levier amplifie symetriquement le rendement des fonds propres et la perte.",
+   "angle": "Structuration LBO, seuil au-dela duquel le levier detruit la valeur."
+  },
+  {
+   "id": "C22",
+   "titre": "La correlation qui tend vers un",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Observation recurrente en periode de crise : les correlations historiques entre classes d'actifs augmentent brutalement, annulant l'effet de diversification.",
+   "angle": "Diversification apparente d'un portefeuille de credit concentre sur une meme economie."
+  },
+  {
+   "id": "C23",
+   "titre": "Procyclicite du provisionnement",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Le passage a un provisionnement fonde sur les pertes attendues visait a corriger le retard du modele fonde sur les pertes averees.",
+   "angle": "Effet d'un scenario macro degrade sur le compte de resultat, et arbitrage avec la distribution du credit."
+  },
+  {
+   "id": "C24",
+   "titre": "Transformation de maturite et ratio de liquidite",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Les ratios de liquidite introduits apres 2008 visent a limiter l'ecart entre la maturite des emplois et celle des ressources.",
+   "angle": "Cout reel d'un credit long finance par des ressources courtes."
+  },
+  {
+   "id": "D01",
+   "titre": "Dilemme du prisonnier",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Jeu ou la strategie individuellement rationnelle produit un resultat collectivement inferieur.",
+   "angle": "Guerre des taux entre banques, course a la sortie sur un dossier en difficulte."
+  },
+  {
+   "id": "D02",
+   "titre": "Equilibre de Nash",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "John Nash, 1950. Situation ou aucun joueur n'a interet a devier unilateralement. Un equilibre n'est pas un optimum.",
+   "angle": "Structure de marche oligopolistique, tarification alignee sans entente."
+  },
+  {
+   "id": "D03",
+   "titre": "Tit-for-tat et cooperation repetee",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Robert Axelrod, The Evolution of Cooperation, 1984. Une strategie simple de reciprocite domine dans un jeu repete.",
+   "angle": "Relation bancaire de long terme, pourquoi la repetition change la negociation."
+  },
+  {
+   "id": "D04",
+   "titre": "Jeu de la poule mouillee",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Jeu ou ceder est couteux mais ou l'affrontement est catastrophique pour les deux parties. L'engagement irreversible devient un avantage.",
+   "angle": "Negociation de restructuration, credibilite d'une menace de mise en jeu des suretes."
+  },
+  {
+   "id": "D05",
+   "titre": "Theorie des perspectives",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Daniel Kahneman et Amos Tversky, 1979. Les decisions se prennent par rapport a un point de reference, avec aversion aux pertes et deformation des probabilites.",
+   "angle": "Pourquoi un client accepte un risque pour eviter d'acter une perte."
+  },
+  {
+   "id": "D06",
+   "titre": "Aversion a la perte",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Une perte pese psychologiquement davantage qu'un gain de meme montant.",
+   "angle": "Refus de solder une position, reticence a passer une provision."
+  },
+  {
+   "id": "D07",
+   "titre": "Effet d'ancrage",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Un chiffre initial, meme arbitraire, oriente durablement l'estimation qui suit.",
+   "angle": "Premier chiffre annonce dans une negociation de marge ou de valorisation."
+  },
+  {
+   "id": "D08",
+   "titre": "Biais de confirmation",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Tendance a rechercher et surponderer l'information qui conforte une conclusion deja formee.",
+   "angle": "Instruction d'un dossier de credit apres qu'une intention d'octroi a ete exprimee."
+  },
+  {
+   "id": "D09",
+   "titre": "Exces de confiance",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Surestimation systematique de la precision de ses propres estimations, particulierement marquee chez les experts.",
+   "angle": "Intervalles de prevision trop etroits dans un business plan, calibrage des scenarios."
+  },
+  {
+   "id": "D10",
+   "titre": "Cout irrecuperable",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Une depense deja engagee et non recuperable ne devrait pas peser sur une decision tournee vers l'avenir.",
+   "angle": "Poursuivre le financement d'un projet degrade parce qu'on y a deja engage des encours."
+  },
+  {
+   "id": "D11",
+   "titre": "Comptabilite mentale",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Richard Thaler. Les agents affectent l'argent a des compartiments mentaux etanches et le traitent differemment selon son origine.",
+   "angle": "Comportement d'epargne des clients, design des produits de placement."
+  },
+  {
+   "id": "D12",
+   "titre": "Regression vers la moyenne",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Francis Galton, XIXe siecle. Une performance extreme est suivie en moyenne d'une performance plus proche de la moyenne, sans qu'aucune cause n'intervienne.",
+   "angle": "Evaluation d'une agence ou d'un chargé d'affaires apres une annee exceptionnelle."
+  },
+  {
+   "id": "D13",
+   "titre": "Rasoir d'Ockham",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "A pouvoir explicatif egal, l'hypothese la plus simple doit etre preferee.",
+   "angle": "Diagnostic d'une degradation de risque : fraude sophistiquee ou simple retournement de marche."
+  },
+  {
+   "id": "D14",
+   "titre": "La barriere de Chesterton",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "G. K. Chesterton, 1929. Ne supprimez pas une barriere avant de savoir pourquoi elle a ete posee.",
+   "angle": "Suppression d'un controle juge redondant dans une refonte de processus."
+  },
+  {
+   "id": "D15",
+   "titre": "Loi de Parkinson",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Cyril Northcote Parkinson, The Economist, 1955. Le travail s'etend jusqu'a occuper tout le temps disponible.",
+   "angle": "Delais d'instruction, dimensionnement des equipes, duree des comites."
+  },
+  {
+   "id": "D16",
+   "titre": "Principe de Peter",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Laurence J. Peter, 1969. Dans une hierarchie, tout employe tend a etre promu jusqu'a son niveau d'incompetence.",
+   "angle": "Promotion d'un excellent technicien a un poste de management."
+  },
+  {
+   "id": "A01",
+   "titre": "Don't fight the Fed",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Adage de marche : ne pas prendre position contre l'orientation de la banque centrale.",
+   "angle": "Positionnement du portefeuille de titres face a un cycle de politique monetaire."
+  },
+  {
+   "id": "A02",
+   "titre": "Cash is king",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Adage rappelant qu'une entreprise fait faillite par manque de tresorerie, pas par manque de resultat comptable.",
+   "angle": "Ecart entre resultat net et flux de tresorerie d'exploitation dans une analyse credit."
+  },
+  {
+   "id": "A03",
+   "titre": "Il n'existe pas de repas gratuit",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Formule popularisee par Milton Friedman. Tout avantage a une contrepartie, meme quand elle n'est pas visible dans le prix affiche.",
+   "angle": "Produits a taux bonifie, gratuite apparente des services de paiement."
+  },
+  {
+   "id": "A04",
+   "titre": "Effet Lindy",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Popularise par Nassim Taleb. Pour ce qui n'est pas perissable, l'esperance de vie future croit avec l'age deja atteint.",
+   "angle": "Choix technologiques structurants, longevite des standards bancaires."
+  },
+  {
+   "id": "A05",
+   "titre": "Le cygne noir",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Nassim Taleb, 2007. Evenement rare, a impact massif, rationalise apres coup comme s'il etait previsible.",
+   "angle": "Limites des modeles calibres sur historique, stress tests inverses."
+  },
+  {
+   "id": "A06",
+   "titre": "LTCM, 1998",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Fonds dirige par des professionnels de haut niveau, dont deux prix Nobel, effondre en 1998 sur des positions d'arbitrage a fort levier apres la crise russe.",
+   "angle": "Levier, liquidite et modele : trois risques qui se materialisent ensemble."
+  },
+  {
+   "id": "A07",
+   "titre": "Barings, 1995",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Faillite d'une banque britannique bicentenaire causee par les pertes non detectees d'un operateur cumulant fonctions de marche et de back-office.",
+   "angle": "Separation des fonctions, controle interne, risque operationnel."
+  },
+  {
+   "id": "A08",
+   "titre": "Northern Rock, 2007",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Etablissement britannique dependant du financement de marche de court terme, mis en difficulte par l'assechement de la liquidite avant meme toute perte de credit significative.",
+   "angle": "Une banque solvable peut mourir illiquide."
+  },
+  {
+   "id": "A09",
+   "titre": "Silicon Valley Bank, 2023",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Faillite rapide d'une banque americaine, liee a des moins-values latentes sur un portefeuille obligataire et a une base de depots concentree et volatile.",
+   "angle": "Risque de taux du portefeuille bancaire, concentration de la collecte, vitesse d'une panique numerique."
+  },
+  {
+   "id": "A10",
+   "titre": "M-Pesa et la bancarisation par le mobile",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Service de transfert d'argent par telephone mobile lance au Kenya, devenu une infrastructure de paiement de masse dans un pays a faible bancarisation.",
+   "angle": "Contournement du reseau d'agences, cout d'acquisition client, place de la banque dans la chaine de valeur du paiement."
+  },
+  {
+   "id": "E01",
+   "titre": "Les cinq forces de Porter",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Michael Porter, Harvard Business Review, 1979. La rentabilite d'un secteur depend de cinq forces structurelles, pas de la seule rivalite entre concurrents.",
+   "angle": "Analyser un secteur avant d'y financer un acteur."
+  },
+  {
+   "id": "E02",
+   "titre": "Chaine de valeur",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Michael Porter, Competitive Advantage, 1985. Decomposer l'entreprise en activites pour identifier ou la valeur est reellement creee.",
+   "angle": "Ou se loge la marge dans un secteur, et qui la capte."
+  },
+  {
+   "id": "E03",
+   "titre": "Innovation de rupture",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Clayton Christensen, The Innovator's Dilemma, 1997. Les leaders echouent en ecoutant leurs meilleurs clients et en ignorant une offre initialement inferieure sur un segment marginal.",
+   "angle": "Pourquoi bien gerer une entreprise peut suffire a la perdre."
+  },
+  {
+   "id": "E04",
+   "titre": "Jobs to be done",
+   "categorie": "entreprise_strategie",
+   "statut": "praticien",
+   "ancrage": "Cadre popularise par Clayton Christensen. Le client n'achete pas un produit, il engage une solution pour accomplir une tache.",
+   "angle": "Reformuler un besoin client au-dela du produit demande."
+  },
+  {
+   "id": "E05",
+   "titre": "Strategie ocean bleu",
+   "categorie": "entreprise_strategie",
+   "statut": "praticien",
+   "ancrage": "W. Chan Kim et Renee Mauborgne, 2005. Creer un espace de marche non disputé plutot que se battre sur un marche existant. Critique recurrente : la selection retrospective des cas de succes.",
+   "angle": "Differenciation reelle contre guerre des prix."
+  },
+  {
+   "id": "E06",
+   "titre": "Effets de reseau",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "La valeur d'un service croit avec le nombre de ses utilisateurs. Distinguer effets directs et indirects.",
+   "angle": "Systemes de paiement, place de marche, adhesion a un standard."
+  },
+  {
+   "id": "E07",
+   "titre": "Loi de Metcalfe",
+   "categorie": "entreprise_strategie",
+   "statut": "debat_academique",
+   "ancrage": "Robert Metcalfe. La valeur d'un reseau croitrait comme le carre du nombre de noeuds. Formulation contestee comme surestimant fortement la valeur des grands reseaux.",
+   "angle": "Valoriser une base d'utilisateurs sans se raconter d'histoires."
+  },
+  {
+   "id": "E08",
+   "titre": "Economies et deseconomies d'echelle",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Le cout unitaire baisse avec le volume jusqu'a un seuil au-dela duquel la complexite de coordination l'emporte.",
+   "angle": "Taille optimale d'un reseau d'agences ou d'une equipe."
+  },
+  {
+   "id": "E09",
+   "titre": "Courbe d'experience",
+   "categorie": "entreprise_strategie",
+   "statut": "debat_academique",
+   "ancrage": "Formalisee par le Boston Consulting Group dans les annees 1960. Le cout unitaire baisserait d'un pourcentage constant a chaque doublement de la production cumulee.",
+   "angle": "Justification de la course aux parts de marche, et ses limites."
+  },
+  {
+   "id": "E10",
+   "titre": "Matrice BCG",
+   "categorie": "entreprise_strategie",
+   "statut": "praticien",
+   "ancrage": "Outil de portefeuille du Boston Consulting Group, annees 1970. Croisement part de marche relative et croissance du marche.",
+   "angle": "Allocation de ressources entre lignes metier, et pourquoi deux axes ne suffisent pas."
+  },
+  {
+   "id": "E11",
+   "titre": "Avantage du premier entrant",
+   "categorie": "entreprise_strategie",
+   "statut": "debat_academique",
+   "ancrage": "Avantage souvent affirme, mais de nombreux travaux montrent que le suiveur rapide capte frequemment le marche en evitant les couts d'education du client.",
+   "angle": "Faut-il etre premier ou etre le bon second."
+  },
+  {
+   "id": "E12",
+   "titre": "Les frontieres de la firme",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Ronald Coase, The Nature of the Firm, 1937. L'entreprise existe parce qu'internaliser coute parfois moins cher que passer par le marche.",
+   "angle": "Decision d'externalisation, filialisation d'une activite."
+  },
+  {
+   "id": "E13",
+   "titre": "Integration verticale",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Controler l'amont ou l'aval pour securiser une ressource ou capter une marge, au prix d'une rigidite accrue.",
+   "angle": "Groupes familiaux integres, analyse de leur resilience et de leur opacite."
+  },
+  {
+   "id": "E14",
+   "titre": "Dependance et pouvoir de negociation",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Le pouvoir d'un acteur sur un autre est fonction de la dependance de ce dernier et de l'existence d'alternatives.",
+   "angle": "Client mono-donneur d'ordres, concentration du chiffre d'affaires comme facteur de risque."
+  },
+  {
+   "id": "E15",
+   "titre": "Cout de changement et verrouillage",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Plus il est couteux pour un client de partir, plus la rente du fournisseur est protegee.",
+   "angle": "Domiciliation de salaire, systemes d'information, flux logés."
+  },
+  {
+   "id": "E16",
+   "titre": "Loi de Moore",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Gordon Moore, 1965. Observation empirique sur le doublement regulier de la densite des transistors. Une prophetie auto-realisatrice devenue feuille de route industrielle.",
+   "angle": "Anticiper la baisse du cout de traitement, et ce que cela rend possible."
+  },
+  {
+   "id": "E17",
+   "titre": "Diffusion de l'innovation",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Everett Rogers, 1962. Adoption en courbe en S, des innovateurs aux retardataires.",
+   "angle": "Rythme d'adoption d'un service digital, calibrage des objectifs de deploiement."
+  },
+  {
+   "id": "E18",
+   "titre": "Le gouffre",
+   "categorie": "entreprise_strategie",
+   "statut": "praticien",
+   "ancrage": "Geoffrey Moore, Crossing the Chasm, 1991. Discontinuite entre les premiers adopteurs enthousiastes et la majorite pragmatique.",
+   "angle": "Pourquoi un pilote reussi ne prejuge pas d'un deploiement reussi."
+  },
+  {
+   "id": "E19",
+   "titre": "Structure de couts et scalabilite",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Un modele a couts fixes eleves et couts variables faibles est fragile a bas volume et tres rentable au-dela du point mort.",
+   "angle": "Analyse du levier operationnel dans un dossier de credit."
+  },
+  {
+   "id": "E20",
+   "titre": "Rendements croissants d'adoption",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Brian Arthur. Sur certains marches technologiques, l'avance initiale s'auto-renforce et conduit a une concentration extreme.",
+   "angle": "Pourquoi certains marches finissent a un ou deux acteurs."
+  },
+  {
+   "id": "E21",
+   "titre": "Marches bifaces et plateformes",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Travaux de Jean Tirole et Jean-Charles Rochet. Une plateforme sert deux populations dont chacune valorise la presence de l'autre, ce qui justifie une tarification asymetrique.",
+   "angle": "Economie de la monetique : qui paie, qui est subventionne."
+  },
+  {
+   "id": "E22",
+   "titre": "La longue traine",
+   "categorie": "entreprise_strategie",
+   "statut": "debat_academique",
+   "ancrage": "Chris Anderson, 2004. La baisse des couts de distribution rendrait rentable la vente de nombreux produits de faible volume. Travaux ulterieurs montrant plutot une concentration accrue sur les tetes de gondole.",
+   "angle": "Segmentation client : servir la masse ou les niches."
+  },
+  {
+   "id": "E23",
+   "titre": "Cycle de vie du produit",
+   "categorie": "entreprise_strategie",
+   "statut": "praticien",
+   "ancrage": "Sequence lancement, croissance, maturite, declin. Cadre descriptif utile, faible pouvoir predictif sur la duree des phases.",
+   "angle": "Gestion d'une gamme de produits bancaires."
+  },
+  {
+   "id": "E24",
+   "titre": "Kodak",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Entreprise ayant developpe tres tot une technologie de photographie numerique en interne, sans en faire un axe strategique, avant d'etre emportee par cette meme technologie.",
+   "angle": "Detenir l'innovation ne suffit pas : encore faut-il accepter de cannibaliser sa propre rente."
+  },
+  {
+   "id": "E25",
+   "titre": "Blockbuster et Netflix",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Le leader mondial de la location de video en magasin a disparu face a un modele d'abonnement puis de diffusion en ligne.",
+   "angle": "Rente de reseau physique confrontee a un modele sans actif lourd."
+  },
+  {
+   "id": "G01",
+   "titre": "Loi de Conway",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "Melvin Conway, 1968. Une organisation produit des systemes qui reproduisent sa propre structure de communication.",
+   "angle": "Pourquoi un parcours client fragmente trahit un organigramme en silos."
+  },
+  {
+   "id": "G02",
+   "titre": "Loi de Brooks",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "Frederick Brooks, The Mythical Man-Month, 1975. Ajouter des ressources a un projet en retard le retarde davantage.",
+   "angle": "Renforts tardifs sur un chantier reglementaire."
+  },
+  {
+   "id": "G03",
+   "titre": "Loi de Gall",
+   "categorie": "management_organisation",
+   "statut": "praticien",
+   "ancrage": "John Gall, 1975. Un systeme complexe qui fonctionne a toujours evolue a partir d'un systeme simple qui fonctionnait.",
+   "angle": "Refonte big bang contre construction incrementale."
+  },
+  {
+   "id": "G04",
+   "titre": "Theorie X et theorie Y",
+   "categorie": "management_organisation",
+   "statut": "debat_academique",
+   "ancrage": "Douglas McGregor, 1960. Deux jeux d'hypotheses opposees du manager sur la motivation de ses equipes, qui deviennent auto-realisatrices.",
+   "angle": "Le dispositif de controle que vous mettez en place revele ce que vous croyez de vos equipes."
+  },
+  {
+   "id": "G05",
+   "titre": "Securite psychologique",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "Amy Edmondson, 1999. Capacite a signaler une erreur ou un desaccord sans crainte de sanction ; associee a la performance des equipes dans plusieurs travaux empiriques.",
+   "angle": "Remontee des incidents et des risques : une culture de sanction produit du silence, pas de la conformite."
+  },
+  {
+   "id": "G06",
+   "titre": "Effet Ringelmann",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "Maximilien Ringelmann. La contribution individuelle decroit quand la taille du groupe augmente.",
+   "angle": "Comites pléthoriques, dilution de la responsabilite."
+  },
+  {
+   "id": "G07",
+   "titre": "Pensee de groupe",
+   "categorie": "management_organisation",
+   "statut": "debat_academique",
+   "ancrage": "Irving Janis, 1972. Recherche de consensus au detriment de l'evaluation realiste des options. Le modele originel est critique sur sa methode, le phenomene reste largement observe.",
+   "angle": "Comite de credit ou personne ne conteste l'avis du plus gradé."
+  },
+  {
+   "id": "G08",
+   "titre": "Escalade d'engagement",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "Barry Staw, 1976. Tendance a accroitre l'investissement dans une decision qui echoue, pour justifier l'engagement initial.",
+   "angle": "Reamenagement successif d'un dossier degrade au lieu d'acter la perte."
+  },
+  {
+   "id": "G09",
+   "titre": "Effet Pygmalion",
+   "categorie": "management_organisation",
+   "statut": "debat_academique",
+   "ancrage": "Rosenthal et Jacobson, 1968. Les attentes de l'encadrant influenceraient la performance. Effet reel mais d'ampleur bien plus faible que ce que la vulgarisation en a retenu.",
+   "angle": "Attribution des dossiers et des moyens en fonction du jugement prealable sur une equipe."
+  },
+  {
+   "id": "G10",
+   "titre": "Loi de Little",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "John Little. Dans un systeme stable, le nombre moyen d'elements en cours est egal au debit multiplie par le temps de traversee.",
+   "angle": "Delai d'instruction d'un credit : reduire l'en-cours plutot qu'accelerer chaque etape."
+  },
+  {
+   "id": "G11",
+   "titre": "Theorie des contraintes",
+   "categorie": "management_organisation",
+   "statut": "praticien",
+   "ancrage": "Eliyahu Goldratt, The Goal, 1984. Le debit d'un systeme est fixe par son goulot d'etranglement ; optimiser ailleurs ne produit rien.",
+   "angle": "Le vrai goulot d'un circuit d'octroi est rarement celui que l'on croit."
+  },
+  {
+   "id": "G12",
+   "titre": "Muda et gaspillage",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "Systeme de production Toyota, formalise par Taiichi Ohno. Identification des activites qui consomment des ressources sans creer de valeur pour le client.",
+   "angle": "Cartographier un processus bancaire par la valeur percue, pas par les etapes existantes."
+  },
+  {
+   "id": "G13",
+   "titre": "Kaizen",
+   "categorie": "management_organisation",
+   "statut": "praticien",
+   "ancrage": "Principe d'amelioration continue par petites ameliorations cumulatives portees par les operateurs eux-memes.",
+   "angle": "Alternative aux projets de transformation lourds et discontinus."
+  },
+  {
+   "id": "G14",
+   "titre": "Jidoka et le droit d'arreter la chaine",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "Principe du systeme Toyota : tout operateur peut stopper la production en cas d'anomalie, pour traiter la cause plutot que la propager.",
+   "angle": "Qui, dans votre organisation, a le droit d'arreter un processus qui derape."
+  },
+  {
+   "id": "G15",
+   "titre": "Loi de Hofstadter",
+   "categorie": "management_organisation",
+   "statut": "praticien",
+   "ancrage": "Douglas Hofstadter, 1979. Une tache prend toujours plus de temps que prevu, meme en tenant compte de cette loi.",
+   "angle": "Planification des chantiers, marges de securite systematiques."
+  },
+  {
+   "id": "G16",
+   "titre": "Nombre de Dunbar",
+   "categorie": "management_organisation",
+   "statut": "debat_academique",
+   "ancrage": "Robin Dunbar. Limite cognitive au nombre de relations stables qu'un individu peut entretenir, souvent citee autour de 150. Le chiffre precis est conteste.",
+   "angle": "Taille au-dela de laquelle une organisation a besoin de regles ecrites plutot que d'interconnaissance."
+  },
+  {
+   "id": "G17",
+   "titre": "Subsidiarite",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "Principe selon lequel une decision doit etre prise au niveau le plus proche du terrain capable de l'assumer.",
+   "angle": "Delegation des pouvoirs d'octroi, seuils de remontee au comite."
+  },
+  {
+   "id": "G18",
+   "titre": "Etendue de controle",
+   "categorie": "management_organisation",
+   "statut": "debat_academique",
+   "ancrage": "Nombre de collaborateurs directs qu'un manager peut encadrer efficacement ; les chiffres avances varient fortement selon la nature du travail.",
+   "angle": "Dimensionnement d'un organigramme, nombre de niveaux hierarchiques."
+  },
+  {
+   "id": "G19",
+   "titre": "Concentration du savoir",
+   "categorie": "management_organisation",
+   "statut": "praticien",
+   "ancrage": "Mesure du nombre de personnes dont le depart paralyserait une activite.",
+   "angle": "Dependance a un expert unique sur un produit structure ou un outil de marche."
+  },
+  {
+   "id": "G20",
+   "titre": "Dette technique et dette organisationnelle",
+   "categorie": "management_organisation",
+   "statut": "praticien",
+   "ancrage": "Metaphore designant le cout futur accru genere par une solution rapide adoptee aujourd'hui.",
+   "angle": "Procedures derogatoires devenues permanentes, contournements SI installés."
+  },
+  {
+   "id": "G21",
+   "titre": "Effet cobra",
+   "categorie": "management_organisation",
+   "statut": "praticien",
+   "ancrage": "Anecdote coloniale devenue expression courante : une prime versee pour eliminer des cobras aurait declenche leur elevage. L'episode est mal documente, le mecanisme d'incitation perverse est lui bien reel.",
+   "angle": "Systeme de commissionnement qui produit exactement le comportement qu'il voulait eviter."
+  },
+  {
+   "id": "G22",
+   "titre": "Loi de Campbell",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "Donald Campbell, 1976. Plus un indicateur quantitatif sert a la decision, plus il est sujet a manipulation et plus il corrompt le processus qu'il mesure.",
+   "angle": "Version sociale de la loi de Goodhart, appliquee aux objectifs commerciaux."
+  },
+  {
+   "id": "G23",
+   "titre": "Cout de coordination",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "Le nombre de canaux de communication croit comme le carre du nombre de participants.",
+   "angle": "Pourquoi un projet a douze contributeurs avance moins vite qu'a quatre."
+  },
+  {
+   "id": "G24",
+   "titre": "Redondance contre specialisation",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "La specialisation maximise l'efficience en regime normal ; la redondance maximise la resilience en cas de choc.",
+   "angle": "Arbitrage entre productivite et continuite d'activite."
+  },
+  {
+   "id": "G25",
+   "titre": "Decisions reversibles et irreversibles",
+   "categorie": "management_organisation",
+   "statut": "praticien",
+   "ancrage": "Distinction popularisee par Jeff Bezos entre decisions a effet reversible et decisions engageantes, appelant des niveaux d'instruction differents.",
+   "angle": "Calibrer le circuit de validation sur la reversibilite, pas sur le montant seul."
+  },
+  {
+   "id": "I01",
+   "titre": "Reciprocite",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Robert Cialdini, Influence, 1984. Un don, meme minime et non sollicite, cree une obligation de contrepartie.",
+   "angle": "Geste commercial initial, et pourquoi il pese plus que sa valeur faciale."
+  },
+  {
+   "id": "I02",
+   "titre": "Engagement et coherence",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Robert Cialdini. Une fois une position exprimee publiquement, l'individu s'y tient au-dela de ce que la rationalite commanderait.",
+   "angle": "Faire formaliser un accord de principe par ecrit avant la negociation des details."
+  },
+  {
+   "id": "I03",
+   "titre": "Preuve sociale",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Robert Cialdini. En situation d'incertitude, l'individu se regle sur le comportement de ses semblables.",
+   "angle": "References clients dans une proposition, effet d'entrainement sur une syndication."
+  },
+  {
+   "id": "I04",
+   "titre": "Autorite",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Robert Cialdini, s'appuyant notamment sur les travaux de Stanley Milgram sur l'obeissance.",
+   "angle": "Poids d'un avis d'expert dans un comite, et risque de suspension de l'esprit critique."
+  },
+  {
+   "id": "I05",
+   "titre": "Sympathie",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Robert Cialdini. On accepte plus volontiers d'une personne que l'on apprecie ou a laquelle on s'identifie.",
+   "angle": "Relation bancaire personnelle : atout commercial, angle mort du risque."
+  },
+  {
+   "id": "I06",
+   "titre": "Rarete",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Robert Cialdini. La valeur percue augmente avec la rarete et avec la perspective de perdre l'opportunite.",
+   "angle": "Offre a duree limitee, et symetriquement, mefiance face a une urgence artificielle imposee par un client."
+  },
+  {
+   "id": "I07",
+   "titre": "Unite",
+   "categorie": "influence_negociation",
+   "statut": "praticien",
+   "ancrage": "Septieme principe ajoute par Robert Cialdini en 2016. L'identite partagee pese plus que la simple sympathie.",
+   "angle": "Appartenance a un meme secteur, une meme promotion, un meme reseau."
+  },
+  {
+   "id": "I08",
+   "titre": "BATNA",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Roger Fisher et William Ury, Getting to Yes, 1981. Votre pouvoir de negociation est la qualite de votre meilleure solution de rechange, pas votre habilete a la table.",
+   "angle": "Avant toute negociation de conditions : que se passe-t-il si aucun accord n'est trouve."
+  },
+  {
+   "id": "I09",
+   "titre": "Separer les personnes du probleme",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Fisher et Ury, 1981. Traiter durement le probleme et avec egards la personne.",
+   "angle": "Recouvrement contentieux sans destruction de la relation commerciale."
+  },
+  {
+   "id": "I10",
+   "titre": "Interets contre positions",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Fisher et Ury, 1981. Une position est ce que la partie demande, un interet est la raison pour laquelle elle le demande. Les positions s'opposent, les interets s'arrangent souvent.",
+   "angle": "Un client qui exige un taux veut parfois surtout une duree ou une souplesse de remboursement."
+  },
+  {
+   "id": "I11",
+   "titre": "Criteres objectifs",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Fisher et Ury, 1981. Ancrer l'accord sur une reference externe legitime plutot que sur un rapport de force.",
+   "angle": "Indexation sur un taux de marche, expertise independante d'une surete."
+  },
+  {
+   "id": "I12",
+   "titre": "Zone d'accord possible",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Intervalle entre le prix de reserve de l'acheteur et celui du vendeur. S'il est vide, aucun talent de negociateur ne creera l'accord.",
+   "angle": "Savoir identifier tot qu'un dossier n'a pas de solution, et arreter."
+  },
+  {
+   "id": "I13",
+   "titre": "Empathie tactique",
+   "categorie": "influence_negociation",
+   "statut": "praticien",
+   "ancrage": "Chris Voss, Never Split the Difference, 2016. Approche issue de la negociation de crise du FBI, fondee sur la verbalisation des emotions de l'autre partie. Pratique professionnelle documentee, non validee experimentalement.",
+   "angle": "Desamorcer un entretien tendu avec un dirigeant en difficulte."
+  },
+  {
+   "id": "I14",
+   "titre": "Questions calibrees",
+   "categorie": "influence_negociation",
+   "statut": "praticien",
+   "ancrage": "Chris Voss. Questions ouvertes commencant par comment ou quoi, qui font porter a l'autre la charge de resoudre le probleme.",
+   "angle": "Comment voulez-vous que je fasse passer ce dossier avec ces garanties."
+  },
+  {
+   "id": "I15",
+   "titre": "La force du non",
+   "categorie": "influence_negociation",
+   "statut": "praticien",
+   "ancrage": "Chris Voss. Un non protege l'interlocuteur et ouvre la discussion, la ou un oui arrache la referme.",
+   "angle": "Laisser un client refuser une option pour faire emerger sa contrainte reelle."
+  },
+  {
+   "id": "I16",
+   "titre": "Ecoute active",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Approche issue des travaux de Carl Rogers. Reformuler pour verifier la comprehension avant de repondre.",
+   "angle": "Entretien de decouverte : ce que le client dit, et ce que vous avez cru entendre."
+  },
+  {
+   "id": "I17",
+   "titre": "Effet de cadrage",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Tversky et Kahneman, 1981. Une meme option est acceptee ou refusee selon qu'elle est presentee en termes de gain ou de perte.",
+   "angle": "Presenter une restructuration comme une preservation plutot qu'un abandon de creance."
+  },
+  {
+   "id": "I18",
+   "titre": "Pied dans la porte",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Freedman et Fraser, 1966. Obtenir un petit engagement augmente la probabilite d'acceptation d'une demande ulterieure plus importante.",
+   "angle": "Entree en relation par un produit simple avant la conquete des flux."
+  },
+  {
+   "id": "I19",
+   "titre": "Le silence comme levier",
+   "categorie": "influence_negociation",
+   "statut": "praticien",
+   "ancrage": "Heuristique de negociation : apres une proposition, celui qui parle le premier concede souvent.",
+   "angle": "Annonce d'une condition tarifaire, puis attente."
+  },
+  {
+   "id": "I20",
+   "titre": "L'enchere au dollar",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Martin Shubik, 1971. Enchere ou le second plus offrant paie aussi sa mise, ce qui conduit rationnellement a surencherir bien au-dela de la valeur du lot.",
+   "angle": "Guerre commerciale sur un client strategique, mecanique d'engrenage."
+  },
+  {
+   "id": "X01",
+   "titre": "Programmation neuro-linguistique",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "invalide",
+   "ancrage": "Methode developpee dans les annees 1970 par Richard Bandler et John Grinder. Ses postulats centraux, notamment les systemes de representation preferentiels et les mouvements oculaires revelateurs, n'ont pas resisté aux tests experimentaux. Une revue systematique publiee en 2012 sur les effets de sante conclut a l'absence de preuve d'efficacite.",
+   "angle": "Ce qui a ete retenu de la PNL et qui fonctionne reellement releve de la reformulation, de l'ecoute active et de l'attention portee a l'interlocuteur, valides ailleurs. Message du jour : le vocabulaire pseudo-neurologique n'ajoute rien."
+  },
+  {
+   "id": "X02",
+   "titre": "La pyramide de Maslow",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "invalide",
+   "ancrage": "Abraham Maslow, 1943. La hierarchie stricte des besoins n'a jamais ete validee empiriquement, et la representation en pyramide n'est pas de Maslow lui-meme.",
+   "angle": "Motivation au travail : les besoins ne s'activent pas en escalier, et la remuneration ne cesse pas de compter au-dela d'un seuil."
+  },
+  {
+   "id": "X03",
+   "titre": "Theorie bifactorielle de Herzberg",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "debat_academique",
+   "ancrage": "Frederick Herzberg, 1959. Distinction entre facteurs d'hygiene et facteurs de motivation. Resultats fortement dependants de la methode d'entretien employee, mal repliques avec d'autres protocoles.",
+   "angle": "Ce que la prime peut et ne peut pas acheter."
+  },
+  {
+   "id": "X04",
+   "titre": "Le MBTI",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "invalide",
+   "ancrage": "Indicateur typologique construit a partir d'une lecture des travaux de Carl Jung. Critique pour sa faible fidelite test-retest et pour la dichotomisation de traits en realite continus.",
+   "angle": "Constituer une equipe ou expliquer un conflit a partir de quatre lettres : ce que cela masque."
+  },
+  {
+   "id": "X05",
+   "titre": "Les styles d'apprentissage",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "invalide",
+   "ancrage": "Idee selon laquelle chacun apprendrait mieux selon un canal visuel, auditif ou kinesthesique. Les etudes controlees ne montrent pas de gain a adapter l'enseignement au style declare.",
+   "angle": "Conception d'un dispositif de formation interne : ce qui marche est la pratique espacee et le rappel actif."
+  },
+  {
+   "id": "X06",
+   "titre": "L'effet Hawthorne",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "debat_academique",
+   "ancrage": "Etudes menees dans une usine de la Western Electric a partir de 1924. Les reanalyses ulterieures des donnees originales ont fortement relativise l'interpretation devenue populaire.",
+   "angle": "Attribuer une hausse de performance a l'attention portee aux equipes, sans controle du reste."
+  },
+  {
+   "id": "X07",
+   "titre": "La regle des 10 000 heures",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "invalide",
+   "ancrage": "Formule popularisee par Malcolm Gladwell a partir de travaux d'Anders Ericsson sur la pratique deliberee. Ericsson a lui-meme conteste cette lecture : le chiffre est une moyenne, et la nature de la pratique compte davantage que sa duree.",
+   "angle": "Plan de developpement des competences : la qualite du feedback prime sur le volume d'heures."
+  },
+  {
+   "id": "X08",
+   "titre": "L'effet Dunning-Kruger",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "debat_academique",
+   "ancrage": "Kruger et Dunning, 1999. Plusieurs travaux ulterieurs soutiennent qu'une part importante du motif graphique observe s'explique par des artefacts statistiques, notamment la regression vers la moyenne.",
+   "angle": "Prudence avec les concepts qui flattent l'intuition et servent surtout a disqualifier autrui."
+  },
+  {
+   "id": "X09",
+   "titre": "Le modele de Tuckman",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "debat_academique",
+   "ancrage": "Bruce Tuckman, 1965. Sequence de developpement des equipes en quatre puis cinq phases, issue d'une revue de litterature et non d'une etude longitudinale.",
+   "angle": "Utile comme vocabulaire partage, faible comme outil de prediction."
+  },
+  {
+   "id": "X10",
+   "titre": "La pyramide de l'apprentissage",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "invalide",
+   "ancrage": "Diagramme attribue a tort a Edgar Dale, affichant des pourcentages de retention selon la modalite d'apprentissage. Ces chiffres n'ont aucune source experimentale identifiable.",
+   "angle": "Exemple type d'un chiffre qui circule en entreprise parce qu'il est commode, jamais parce qu'il a ete mesure."
+  },
+  {
+   "id": "L01",
+   "titre": "La pyramide de Minto",
+   "categorie": "communication_leadership",
+   "statut": "praticien",
+   "ancrage": "Barbara Minto, ancienne consultante chez McKinsey, The Pyramid Principle, 1973. Enoncer la conclusion en premier, puis les arguments, puis les faits.",
+   "angle": "Note au comite : la reponse en tete, la demonstration ensuite. L'ordre chronologique de votre analyse n'interesse personne."
+  },
+  {
+   "id": "L02",
+   "titre": "Ethos, pathos, logos",
+   "categorie": "communication_leadership",
+   "statut": "etabli",
+   "ancrage": "Aristote, Rhetorique. Trois leviers de persuasion : la credibilite de l'orateur, l'emotion de l'auditoire, la logique du propos.",
+   "angle": "Un dossier techniquement irreprochable echoue si l'ethos n'est pas etabli devant l'instance."
+  },
+  {
+   "id": "L03",
+   "titre": "Effet de position serielle",
+   "categorie": "communication_leadership",
+   "statut": "etabli",
+   "ancrage": "Travaux issus de la lignee d'Hermann Ebbinghaus. On retient mieux le debut et la fin d'une sequence que le milieu.",
+   "angle": "Placer le message essentiel en ouverture et en cloture d'une presentation, jamais en slide 7 sur 15."
+  },
+  {
+   "id": "L04",
+   "titre": "Regle du pic et de la fin",
+   "categorie": "communication_leadership",
+   "statut": "etabli",
+   "ancrage": "Daniel Kahneman et ses collegues. Le souvenir d'une experience est domine par son moment le plus intense et par sa fin, non par sa duree.",
+   "angle": "Un entretien client difficile se juge sur sa derniere minute. Parcours de reclamation : soigner la sortie."
+  },
+  {
+   "id": "L05",
+   "titre": "La malediction de la connaissance",
+   "categorie": "communication_leadership",
+   "statut": "etabli",
+   "ancrage": "Camerer, Loewenstein et Weber, 1989. Une fois que l'on sait quelque chose, il devient tres difficile d'imaginer ce que c'est de l'ignorer.",
+   "angle": "L'expert qui explique un produit structure a un conseil d'administration et se croit clair."
+  },
+  {
+   "id": "L06",
+   "titre": "Le nombre magique sept",
+   "categorie": "communication_leadership",
+   "statut": "debat_academique",
+   "ancrage": "George Miller, 1956. Limite de la memoire de travail estimee a sept elements plus ou moins deux. Des travaux ulterieurs, notamment de Nelson Cowan, situent plutot cette limite autour de quatre.",
+   "angle": "Nombre de messages qu'une reunion peut reellement transmettre. La reponse est plus proche de trois que de sept."
+  },
+  {
+   "id": "L07",
+   "titre": "Charge cognitive",
+   "categorie": "communication_leadership",
+   "statut": "etabli",
+   "ancrage": "John Sweller. Toute ressource mentale consacree a decoder la forme n'est plus disponible pour traiter le fond.",
+   "angle": "Un tableau dense sur un ecran de projection ne transmet rien. La densite n'est pas de la rigueur."
+  },
+  {
+   "id": "L08",
+   "titre": "Le concret bat l'abstrait",
+   "categorie": "communication_leadership",
+   "statut": "praticien",
+   "ancrage": "Chip et Dan Heath, Made to Stick, 2007. Un message retenu est simple, inattendu, concret, credible, emotionnel et narratif.",
+   "angle": "Un chiffre isole ne se retient pas ; le meme chiffre rapporte a une reference familiere, oui."
+  },
+  {
+   "id": "L09",
+   "titre": "L'effet Dr Fox",
+   "categorie": "communication_leadership",
+   "statut": "etabli",
+   "ancrage": "Experience de 1973 : un acteur presente comme expert delivre une conference au contenu vide mais au style expressif, et obtient d'excellentes evaluations d'un public de specialistes.",
+   "angle": "L'eloquence est evaluee independamment du fond. Vrai quand vous ecoutez, vrai quand on vous ecoute."
+  },
+  {
+   "id": "L10",
+   "titre": "Le mythe du 7-38-55",
+   "categorie": "communication_leadership",
+   "statut": "invalide",
+   "ancrage": "Chiffres tires des travaux d'Albert Mehrabian sur la communication des attitudes et des emotions en situation de message contradictoire. Leur generalisation a toute communication est une deformation que Mehrabian a lui-meme denoncee.",
+   "angle": "Non, le contenu de votre propos ne compte pas pour 7 pour cent. Exemple type du chiffre repete en formation sans jamais avoir ete verifie."
+  },
+  {
+   "id": "L11",
+   "titre": "La posture de pouvoir",
+   "categorie": "communication_leadership",
+   "statut": "invalide",
+   "ancrage": "Etude de 2010 affirmant qu'adopter une posture expansive modifie les hormones et la prise de risque. Les tentatives de replication a plus grand echantillon n'ont pas retrouve les effets physiologiques ; une des co-auteures de l'etude initiale a publiquement pris ses distances.",
+   "angle": "Cas d'ecole de la crise de replication en psychologie, et de ce qu'il advient d'un resultat devenu populaire trop vite."
+  },
+  {
+   "id": "L12",
+   "titre": "Effet de simple exposition",
+   "categorie": "communication_leadership",
+   "statut": "etabli",
+   "ancrage": "Robert Zajonc, 1968. La familiarite repetee avec un stimulus augmente la preference pour ce stimulus, sans argumentation.",
+   "angle": "Pourquoi une idee portee patiemment sur plusieurs comites finit par etre adoptee sans debat nouveau."
+  },
+  {
+   "id": "L13",
+   "titre": "Effet de halo",
+   "categorie": "communication_leadership",
+   "statut": "etabli",
+   "ancrage": "Edward Thorndike, 1920. Une impression favorable sur une dimension contamine l'evaluation de toutes les autres.",
+   "angle": "Un dirigeant brillant a l'oral, dont on n'instruit plus les comptes avec la meme rigueur."
+  },
+  {
+   "id": "L14",
+   "titre": "Illusion de transparence",
+   "categorie": "communication_leadership",
+   "statut": "etabli",
+   "ancrage": "Travaux de Thomas Gilovich et ses collegues. On surestime systematiquement la mesure dans laquelle nos etats internes et nos intentions sont percus par autrui.",
+   "angle": "Vous pensez avoir ete clair sur votre desaccord en comite. Personne ne l'a entendu."
+  },
+  {
+   "id": "L15",
+   "titre": "Prophetie autorealisatrice",
+   "categorie": "communication_leadership",
+   "statut": "etabli",
+   "ancrage": "Robert K. Merton, 1948. Une definition initialement fausse d'une situation suscite des comportements qui la rendent vraie.",
+   "angle": "Rumeur de difficulte sur un etablissement, et retrait des depots qui la valide."
+  },
+  {
+   "id": "L16",
+   "titre": "Le paradoxe d'Abilene",
+   "categorie": "communication_leadership",
+   "statut": "praticien",
+   "ancrage": "Jerry Harvey, 1974. Un groupe adopte collectivement une decision qu'aucun de ses membres ne souhaitait individuellement, chacun croyant s'aligner sur les autres.",
+   "angle": "Le consensus apparent d'un comite ou personne n'a exprime sa reserve."
+  },
+  {
+   "id": "L17",
+   "titre": "L'effet MUM",
+   "categorie": "communication_leadership",
+   "statut": "etabli",
+   "ancrage": "Travaux de Rosen et Tesser dans les annees 1970. Reticence documentee a transmettre une mauvaise nouvelle, d'autant plus forte que le destinataire est en position d'autorite.",
+   "angle": "L'information de risque se degrade en montant l'organigramme. Ce n'est pas un defaut individuel, c'est une regularite."
+  },
+  {
+   "id": "L18",
+   "titre": "Leadership transformationnel",
+   "categorie": "communication_leadership",
+   "statut": "debat_academique",
+   "ancrage": "James MacGregor Burns, 1978, puis Bernard Bass, 1985. Distinction entre un leadership transactionnel fonde sur l'echange et un leadership transformationnel fonde sur la vision. Les instruments de mesure sont critiques pour leur circularite.",
+   "angle": "Ce que l'on attend d'un dirigeant en periode de transformation, et ce qui suffit en periode stable."
+  },
+  {
+   "id": "L19",
+   "titre": "Leadership situationnel",
+   "categorie": "communication_leadership",
+   "statut": "debat_academique",
+   "ancrage": "Paul Hersey et Kenneth Blanchard, 1969. Le style de direction devrait s'adapter au niveau de maturite du collaborateur. Modele tres diffuse en formation, faiblement soutenu par les tests empiriques.",
+   "angle": "Adapter son mode de delegation au collaborateur : intuition juste, modele fragile."
+  },
+  {
+   "id": "L20",
+   "titre": "Leadership serviteur",
+   "categorie": "communication_leadership",
+   "statut": "praticien",
+   "ancrage": "Robert Greenleaf, 1970. Le dirigeant se concoit d'abord comme au service de la croissance de son equipe.",
+   "angle": "Ce que change concretement cette posture dans l'arbitrage des moyens entre soi et ses equipes."
+  },
+  {
+   "id": "L21",
+   "titre": "Grille de Blake et Mouton",
+   "categorie": "communication_leadership",
+   "statut": "praticien",
+   "ancrage": "Robert Blake et Jane Mouton, 1964. Positionnement du manager sur deux axes : interet pour la production et interet pour les personnes.",
+   "angle": "Grille de lecture simple d'un style de direction, sans valeur predictive."
+  },
+  {
+   "id": "L22",
+   "titre": "La fenetre de Johari",
+   "categorie": "communication_leadership",
+   "statut": "praticien",
+   "ancrage": "Joseph Luft et Harry Ingham, 1955. Quatre zones selon ce qui est connu de soi et connu des autres.",
+   "angle": "La zone aveugle d'un dirigeant : ce que tout le monde voit sauf lui, et pourquoi personne ne le dit."
+  },
+  {
+   "id": "L23",
+   "titre": "Feedback descriptif contre feedback evaluatif",
+   "categorie": "communication_leadership",
+   "statut": "praticien",
+   "ancrage": "Principe recurrent des travaux sur le retour d'information : decrire un comportement observable et son effet, plutot que qualifier la personne.",
+   "angle": "Vous manquez de rigueur contre le dossier est parti sans la garantie signee. Le second est actionnable."
+  },
+  {
+   "id": "L24",
+   "titre": "Le vide informationnel",
+   "categorie": "communication_leadership",
+   "statut": "praticien",
+   "ancrage": "Regle de communication de crise : en l'absence d'information officielle, l'espace est occupe par la rumeur.",
+   "angle": "Silence de la direction pendant une reorganisation, et ce qui circule a la place."
+  },
+  {
+   "id": "L25",
+   "titre": "Exemplarite et cout du signal",
+   "categorie": "communication_leadership",
+   "statut": "etabli",
+   "ancrage": "Application de la theorie du signal au comportement du dirigeant : seul un acte couteux pour celui qui l'accomplit est percu comme credible.",
+   "angle": "Un discours sur la maitrise des couts credible uniquement si le premier arbitrage defavorable porte sur votre propre perimetre."
+  },
+  {
+   "id": "M31",
+   "titre": "Loi de Wagner",
+   "categorie": "macro",
+   "statut": "debat_academique",
+   "ancrage": "Adolph Wagner, XIXe siecle. La part de la depense publique dans l'economie croitrait avec le niveau de developpement.",
+   "angle": "Trajectoire de la depense publique et de son financement bancaire."
+  },
+  {
+   "id": "M32",
+   "titre": "Courbe en J",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Apres une devaluation, la balance commerciale se degrade avant de s'ameliorer, le temps que les volumes s'ajustent aux nouveaux prix.",
+   "angle": "Effet retarde d'une depreciation sur les clients importateurs et exportateurs."
+  },
+  {
+   "id": "M33",
+   "titre": "Effet Balassa-Samuelson",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Bela Balassa et Paul Samuelson, 1964. Les pays a productivite croissante dans les biens echangeables connaissent une hausse du niveau general des prix et une appreciation reelle.",
+   "angle": "Pourquoi comparer des niveaux de prix entre pays sans corriger conduit a des conclusions fausses."
+  },
+  {
+   "id": "M34",
+   "titre": "Theoreme Heckscher-Ohlin",
+   "categorie": "macro",
+   "statut": "debat_academique",
+   "ancrage": "Un pays exporte les biens intensifs dans le facteur dont il est le mieux dote.",
+   "angle": "Specialisation d'une economie et concentration sectorielle du risque bancaire."
+  },
+  {
+   "id": "M35",
+   "titre": "Paradoxe de Leontief",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Wassily Leontief, 1953. Les exportations americaines se sont revelees plus intensives en travail qu'en capital, contredisant la prediction standard.",
+   "angle": "Quand la donnee contredit le modele, c'est la donnee qui gagne."
+  },
+  {
+   "id": "M36",
+   "titre": "Modele de Solow",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Robert Solow, 1956. L'accumulation de capital seule ne soutient pas la croissance a long terme ; le residu inexplique est attribue au progres technique.",
+   "angle": "Un plan d'investissement sans gain de productivite ne cree pas de croissance durable."
+  },
+  {
+   "id": "M37",
+   "titre": "Croissance endogene",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Paul Romer et d'autres, annees 1980. Le progres technique resulte de decisions d'investissement en connaissance, il n'est pas exogene.",
+   "angle": "Justification economique des politiques d'education et de recherche."
+  },
+  {
+   "id": "M38",
+   "titre": "Trappe a revenu intermediaire",
+   "categorie": "macro",
+   "statut": "debat_academique",
+   "ancrage": "Hypothese selon laquelle des economies stagnent apres avoir epuise l'avantage des bas couts, sans acceder aux activites a forte valeur. L'existence statistique du phenomene est discutee.",
+   "angle": "Positionnement d'une economie a couts intermediaires et montee en gamme industrielle."
+  },
+  {
+   "id": "M39",
+   "titre": "Loi d'Engel",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Ernst Engel, 1857. La part du budget consacree a l'alimentation decroit quand le revenu augmente.",
+   "angle": "Lecture du potentiel de bancarisation et de consommation d'un segment."
+  },
+  {
+   "id": "M40",
+   "titre": "Coefficient de Gini",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Corrado Gini, 1912. Mesure synthetique de l'inegalite comprise entre zero et un. Deux distributions tres differentes peuvent avoir le meme Gini.",
+   "angle": "Limite d'un indicateur unique pour decrire une realite multidimensionnelle."
+  },
+  {
+   "id": "M41",
+   "titre": "Courbe du Grand Gatsby",
+   "categorie": "macro",
+   "statut": "debat_academique",
+   "ancrage": "Correlation observee entre inegalite de revenus et faible mobilite sociale intergenerationnelle. Correlation transversale, causalite non etablie.",
+   "angle": "Rappel utile : une correlation entre pays n'est pas un mecanisme."
+  },
+  {
+   "id": "M42",
+   "titre": "NAIRU",
+   "categorie": "macro",
+   "statut": "debat_academique",
+   "ancrage": "Taux de chomage compatible avec une inflation stable. Concept central des modeles de banque centrale, mais estime avec de tres larges intervalles d'incertitude.",
+   "angle": "Piloter une politique sur une variable qu'on ne sait pas mesurer."
+  },
+  {
+   "id": "M43",
+   "titre": "Critique de Lucas",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Robert Lucas, 1976. Les relations econometriques estimees sur donnees passees se deforment quand la politique change, car les agents modifient leurs anticipations.",
+   "angle": "Un modele de scoring cale sur un historique cesse d'etre valide quand la politique d'octroi change."
+  },
+  {
+   "id": "M44",
+   "titre": "Incoherence temporelle",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Finn Kydland et Edward Prescott, 1977. La politique optimale annoncee aujourd'hui cesse de l'etre demain, ce qui detruit la credibilite. Argument fondateur de l'independance des banques centrales.",
+   "angle": "Pourquoi une regle contraignante vaut mieux qu'une promesse discretionnaire."
+  },
+  {
+   "id": "M45",
+   "titre": "Arret brutal des flux de capitaux",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Concept developpe notamment par Guillermo Calvo. Interruption soudaine des entrees de capitaux dans une economie emergente, forcant un ajustement brutal du compte courant.",
+   "angle": "Dependance au financement exterieur et fragilite d'un modele de croissance."
+  },
+  {
+   "id": "M46",
+   "titre": "Le peche originel",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Barry Eichengreen et Ricardo Hausmann. Incapacite de certaines economies a emprunter a long terme dans leur propre monnaie, ce qui expose leur bilan au change.",
+   "angle": "Asymetrie de devise dans le bilan d'un Etat, d'une banque ou d'un client."
+  },
+  {
+   "id": "M47",
+   "titre": "Crise de change de premiere generation",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Paul Krugman, 1979. Un regime de change fixe incompatible avec la politique budgetaire finit par ceder ; l'attaque speculative ne fait qu'avancer une echeance certaine.",
+   "angle": "Lire la soutenabilite d'un ancrage plutot que commenter l'attaque."
+  },
+  {
+   "id": "M48",
+   "titre": "Defaut souverain",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Le defaut d'un Etat est une decision autant politique qu'economique. Les clauses d'action collective visent a organiser une restructuration sans blocage par une minorite de creanciers.",
+   "angle": "Exposition souveraine d'un bilan bancaire, traitement prudentiel et traitement economique."
+  },
+  {
+   "id": "M49",
+   "titre": "Regle de Guidotti-Greenspan",
+   "categorie": "macro",
+   "statut": "praticien",
+   "ancrage": "Recommandation selon laquelle les reserves de change d'un pays devraient couvrir sa dette exterieure exigible a un an.",
+   "angle": "Indicateur de vulnerabilite externe a suivre au meme titre que les mois d'importation."
+  },
+  {
+   "id": "M50",
+   "titre": "Taux de change effectif reel",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Taux de change moyen pondere par les partenaires commerciaux et corrige des ecarts d'inflation. Mesure la competitivite-prix reelle, contrairement au taux nominal bilateral.",
+   "angle": "Une monnaie peut se deprecier nominalement et s'apprecier reellement."
+  },
+  {
+   "id": "M51",
+   "titre": "Economie informelle",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Travaux d'Hernando de Soto sur le cout d'entree dans la formalite et sur le capital immobilise faute de titres de propriete opposables.",
+   "angle": "Bancarisation, garanties inexploitables et cout du credit pour le secteur informel."
+  },
+  {
+   "id": "M52",
+   "titre": "Taxe inflationniste",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "L'inflation transfere de la richesse des detenteurs d'encaisses nominales vers l'emetteur de la monnaie et vers les debiteurs.",
+   "angle": "Qui gagne et qui perd a l'inflation dans un bilan bancaire."
+  },
+  {
+   "id": "M53",
+   "titre": "Creation monetaire endogene",
+   "categorie": "macro",
+   "statut": "debat_academique",
+   "ancrage": "Vision selon laquelle les banques creent la monnaie en accordant des credits, les reserves suivant plutot qu'elles ne contraignent. Elle contredit la presentation scolaire du multiplicateur monetaire.",
+   "angle": "Ce que finance reellement un depot, et ce que contraint reellement un ratio."
+  },
+  {
+   "id": "M54",
+   "titre": "Subvention generalisee et ciblage",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "Une subvention au prix beneficie proportionnellement a la consommation, donc davantage aux menages aises en valeur absolue, alors qu'un transfert cible atteint directement la population visee.",
+   "angle": "Efficacite comparee des dispositifs de soutien, y compris des taux bonifies."
+  },
+  {
+   "id": "M55",
+   "titre": "Maladie des couts de Baumol",
+   "categorie": "macro",
+   "statut": "etabli",
+   "ancrage": "William Baumol, annees 1960. Les secteurs a faible gain de productivite voient leurs couts relatifs augmenter, car ils doivent suivre les salaires des secteurs productifs.",
+   "angle": "Pourquoi le cout du conseil, de la sante ou de l'education augmente structurellement."
+  },
+  {
+   "id": "C25",
+   "titre": "Theorie moderne du portefeuille",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Harry Markowitz, Portfolio Selection, 1952. Le risque d'un portefeuille depend des covariances, pas de la somme des risques individuels.",
+   "angle": "Diversification d'un portefeuille de credit : ce n'est pas le nombre de lignes qui compte."
+  },
+  {
+   "id": "C26",
+   "titre": "Frontiere efficiente",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Ensemble des portefeuilles offrant le rendement maximal pour un niveau de risque donne.",
+   "angle": "Arbitrage rendement-risque a l'echelle du bilan bancaire."
+  },
+  {
+   "id": "C27",
+   "titre": "Alpha et attribution de performance",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Distinguer la part de performance expliquee par l'exposition au marche de celle attribuable a la selection.",
+   "angle": "Une bonne annee commerciale doit-elle sa performance au marche ou au travail des equipes."
+  },
+  {
+   "id": "C28",
+   "titre": "Modele a trois facteurs",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Eugene Fama et Kenneth French, 1993. Taille et ratio valeur comptable sur valeur de marche expliquent une part du rendement que le seul beta ne capture pas.",
+   "angle": "Un modele explicatif se juge sur ce qu'il laisse inexplique."
+  },
+  {
+   "id": "C29",
+   "titre": "Effet momentum",
+   "categorie": "marche_credit",
+   "statut": "debat_academique",
+   "ancrage": "Narasimhan Jegadeesh et Sheridan Titman, 1993. Les titres performants continuent de surperformer a horizon de quelques mois. Anomalie persistante, difficilement conciliable avec l'efficience.",
+   "angle": "Une regularite documentee n'est pas une strategie exploitable apres couts."
+  },
+  {
+   "id": "C30",
+   "titre": "Hypothese de marche adaptatif",
+   "categorie": "marche_credit",
+   "statut": "debat_academique",
+   "ancrage": "Andrew Lo. L'efficience serait variable dans le temps et dependante de l'environnement plutot qu'un etat permanent.",
+   "angle": "Degre d'efficience d'un marche etroit, et ce que cela autorise ou interdit."
+  },
+  {
+   "id": "C31",
+   "titre": "Theorie du financement hierarchise",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Stewart Myers et Nicolas Majluf, 1984. L'entreprise prefere l'autofinancement, puis la dette, puis l'augmentation de capital en dernier recours, du fait de l'asymetrie d'information.",
+   "angle": "Une levee de fonds propres emet un signal ; savoir lequel avant de l'interpreter."
+  },
+  {
+   "id": "C32",
+   "titre": "Theorie du compromis",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Structure financiere optimale resultant de l'arbitrage entre l'economie fiscale de la dette et le cout attendu de la detresse financiere.",
+   "angle": "Jusqu'ou endetter un dossier sans detruire sa valeur."
+  },
+  {
+   "id": "C33",
+   "titre": "Cout moyen pondere du capital",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Moyenne du cout de la dette et du cout des fonds propres, ponderee par leur poids. Sensible aux hypotheses retenues pour le cout des fonds propres.",
+   "angle": "Taux d'actualisation d'un projet : la conclusion depend d'un parametre estime, pas observe."
+  },
+  {
+   "id": "C34",
+   "titre": "Le piege du taux de rentabilite interne",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Le TRI suppose un reinvestissement des flux a ce meme taux et peut produire plusieurs solutions ou aucune. La valeur actuelle nette reste le critere de reference.",
+   "angle": "Deux projets classes differemment selon le critere retenu : lequel croire."
+  },
+  {
+   "id": "C35",
+   "titre": "Options reelles",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Application de la logique optionnelle aux decisions d'investissement : la flexibilite de differer, d'etendre ou d'abandonner a une valeur.",
+   "angle": "Valoriser une clause de sortie ou une tranche conditionnelle dans un financement."
+  },
+  {
+   "id": "C36",
+   "titre": "Creation de valeur economique",
+   "categorie": "marche_credit",
+   "statut": "praticien",
+   "ancrage": "Resultat operationnel apres impot diminue du cout du capital investi. Un resultat comptable positif peut correspondre a une destruction de valeur.",
+   "angle": "Rentabilite d'une ligne metier corrigee des fonds propres qu'elle immobilise."
+  },
+  {
+   "id": "C37",
+   "titre": "Flux de tresorerie disponible et discipline de la dette",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Michael Jensen, 1986. La dette contraint les dirigeants a restituer la tresorerie plutot qu'a la depenser en projets destructeurs de valeur.",
+   "angle": "Le levier n'est pas qu'un cout : c'est aussi un mecanisme de gouvernance."
+  },
+  {
+   "id": "C38",
+   "titre": "Relachement des covenants",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "En phase haute de cycle, la concurrence entre preteurs conduit a l'affaiblissement des clauses de sauvegarde, ce qui retarde la detection des difficultes.",
+   "angle": "Le covenant supprime en 2024 est la mauvaise surprise de 2027."
+  },
+  {
+   "id": "C39",
+   "titre": "Effet de falaise des notations",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Le passage sous un seuil de notation declenche mecaniquement des ventes forcees et des appels de garantie chez les investisseurs contraints.",
+   "angle": "Une degradation d'un cran peut avoir un effet disproportionne sur la liquidite d'un emetteur."
+  },
+  {
+   "id": "C40",
+   "titre": "Titrisation et transfert de risque",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "La cession d'un portefeuille ne transfere le risque que si le cedant ne conserve pas d'exposition residuelle, explicite ou implicite.",
+   "angle": "Verifier ou le risque atterrit reellement, et non ou il est comptabilise."
+  },
+  {
+   "id": "C41",
+   "titre": "Decoupage en tranches et correlation",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "La valeur d'une tranche senior depend surtout de l'hypothese de correlation entre defauts, parametre difficilement observable et sous-estime avant 2008.",
+   "angle": "Un modele peut etre juste et une hypothese fausse suffit a le rendre dangereux."
+  },
+  {
+   "id": "C42",
+   "titre": "Derives de credit et risque de contrepartie",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Se couvrir contre un risque de credit cree une exposition sur le vendeur de protection.",
+   "angle": "Une couverture n'annule pas le risque, elle le deplace vers un tiers qu'il faut evaluer."
+  },
+  {
+   "id": "C43",
+   "titre": "Risque de correlation defavorable",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Situation ou l'exposition sur une contrepartie augmente au moment precis ou sa qualite de credit se degrade.",
+   "angle": "Garantie apportee par une societe du meme groupe que le debiteur."
+  },
+  {
+   "id": "C44",
+   "titre": "Compensation et chambre centrale",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "La compensation centrale reduit le risque bilateral en le concentrant sur une infrastructure, qui devient elle-meme systemique.",
+   "angle": "Deplacer un risque n'est pas le supprimer : ou est-il desormais concentre."
+  },
+  {
+   "id": "C45",
+   "titre": "Spirale de liquidite",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Travaux de Markus Brunnermeier et Lasse Pedersen. Baisse des prix, appels de marge, ventes forcees, nouvelle baisse : la liquidite de financement et la liquidite de marche se renforcent mutuellement a la baisse.",
+   "angle": "Pourquoi une crise s'accelere au lieu de s'amortir."
+  },
+  {
+   "id": "C46",
+   "titre": "Vente en catastrophe",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Cession d'un actif a un prix tres inferieur a sa valeur fondamentale parce que les acheteurs naturels sont contraints au meme moment.",
+   "angle": "Valeur de realisation d'une surete en periode de stress generalise."
+  },
+  {
+   "id": "C47",
+   "titre": "Contagion et risque systemique",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "La defaillance d'un acteur se propage par les expositions directes, par les prix d'actifs communs et par la perte de confiance.",
+   "angle": "Exposition indirecte a un secteur via plusieurs clients apparemment independants."
+  },
+  {
+   "id": "C48",
+   "titre": "La ruee sur le financement de gros",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "En 2008, la panique n'a pas pris la forme de files d'attente au guichet mais du refus des contreparties de renouveler les financements a court terme garantis.",
+   "angle": "Les paniques modernes se produisent entre professionnels, pas devant les agences."
+  },
+  {
+   "id": "C49",
+   "titre": "Ponderation des risques et ratio de solvabilite",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Le capital exige depend d'actifs ponderes par des coefficients de risque, ce qui rend le ratio sensible a la methode de ponderation autant qu'a la qualite reelle des actifs.",
+   "angle": "Deux banques au meme ratio peuvent porter des risques tres differents."
+  },
+  {
+   "id": "C50",
+   "titre": "Arbitrage reglementaire",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Restructurer une operation pour en reduire le cout en capital sans en modifier le risque economique.",
+   "angle": "Toute regle quantitative genere son industrie d'optimisation. Corollaire de la loi de Goodhart."
+  },
+  {
+   "id": "C51",
+   "titre": "Coussin contracyclique",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Exigence de capital additionnelle constituee en haut de cycle et liberee en bas de cycle, pour attenuer la procyclicite du credit.",
+   "angle": "Constituer des reserves quand tout va bien : facile a ecrire, difficile a faire accepter."
+  },
+  {
+   "id": "C52",
+   "titre": "Stress test inverse",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Partir de la defaillance de l'etablissement et remonter aux scenarios qui la produiraient, au lieu de projeter un scenario predefini.",
+   "angle": "Question a poser en comite : qu'est-ce qui nous tuerait, et non que se passe-t-il si le PIB baisse de deux points."
+  },
+  {
+   "id": "C53",
+   "titre": "La decomposition de la perte attendue",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Perte attendue egale probabilite de defaut multipliee par perte en cas de defaut et par exposition au moment du defaut.",
+   "angle": "Trois leviers distincts : selectionner, garantir, plafonner. On travaille souvent le premier seul."
+  },
+  {
+   "id": "C54",
+   "titre": "Taux de recuperation",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "La valeur reellement recuperee sur une surete depend du delai judiciaire, de la liquidite du bien et de son etat au moment de la realisation.",
+   "angle": "Ecart entre valeur d'expertise a l'octroi et produit de cession sept ans plus tard."
+  },
+  {
+   "id": "C55",
+   "titre": "Risque de concentration",
+   "categorie": "marche_credit",
+   "statut": "etabli",
+   "ancrage": "Un portefeuille peu granulaire voit sa perte reelle s'ecarter fortement de la perte attendue moyenne.",
+   "angle": "Groupes d'affaires lies, secteur unique, meme donneur d'ordres public."
+  },
+  {
+   "id": "E26",
+   "titre": "Avantage concurrentiel durable",
+   "categorie": "entreprise_strategie",
+   "statut": "praticien",
+   "ancrage": "Notion popularisee par Warren Buffett sous l'image des douves protegeant un chateau : ce qui empeche un concurrent de repliquer l'offre.",
+   "angle": "Un client rentable sans barriere a l'entree ne le restera pas."
+  },
+  {
+   "id": "E27",
+   "titre": "Approche par les ressources",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Jay Barney, 1991. Une ressource procure un avantage durable si elle est de valeur, rare, difficile a imiter et exploitable par l'organisation.",
+   "angle": "Grille de lecture d'un dossier : qu'est-ce qui, chez ce client, n'est pas copiable."
+  },
+  {
+   "id": "E28",
+   "titre": "Capacites dynamiques",
+   "categorie": "entreprise_strategie",
+   "statut": "debat_academique",
+   "ancrage": "David Teece. Aptitude d'une organisation a reconfigurer ses ressources face a un environnement changeant. Concept critique pour sa difficulte de mesure.",
+   "angle": "Ce qui distingue une entreprise qui traverse un choc sectoriel de celle qui y reste."
+  },
+  {
+   "id": "E29",
+   "titre": "Exploration et exploitation",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "James March, 1991. Exploiter l'existant rapporte a court terme et de facon certaine ; explorer rapporte a long terme et de facon incertaine. Les organisations sur-investissent naturellement dans l'exploitation.",
+   "angle": "Budget innovation systematiquement arbitre au profit du coeur de metier."
+  },
+  {
+   "id": "E30",
+   "titre": "Rendements decroissants",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Au-dela d'un point, chaque unite supplementaire d'un facteur produit un gain inferieur au precedent.",
+   "angle": "Effectif commercial, budget marketing, niveaux de controle : tout a un point d'inflexion."
+  },
+  {
+   "id": "E31",
+   "titre": "Cout marginal proche de zero",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Dans les activites numeriques, servir un client de plus ne coute presque rien, ce qui deplace toute la logique de tarification vers la valeur percue.",
+   "angle": "Tarification d'un service digital bancaire : le cout de revient n'est plus une reference."
+  },
+  {
+   "id": "E32",
+   "titre": "Penetration ou ecremage",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Deux strategies de lancement opposees : prix bas pour conquerir des volumes, ou prix eleve pour capter d'abord les clients les moins sensibles au prix.",
+   "angle": "Lancement d'un produit : la premiere grille tarifaire est difficile a corriger a la hausse."
+  },
+  {
+   "id": "E33",
+   "titre": "Discrimination tarifaire",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Vendre le meme service a des prix differents selon la disposition a payer, si l'arbitrage entre clients est empeche.",
+   "angle": "Segmentation tarifaire bancaire : sa condition de survie est l'opacite, sa limite est l'equite percue."
+  },
+  {
+   "id": "E34",
+   "titre": "Elasticite-prix",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Variation relative de la demande rapportee a la variation relative du prix. Determine si une hausse de prix augmente ou reduit le chiffre d'affaires.",
+   "angle": "Reviser une commission sans avoir estime l'elasticite revient a tirer a l'aveugle."
+  },
+  {
+   "id": "E35",
+   "titre": "Cannibalisation",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Un nouveau produit capte une part de ses ventes sur l'offre existante de la meme entreprise. La question n'est pas de l'eviter mais de savoir qui la realisera.",
+   "angle": "Le paiement instantane ronge les commissions existantes. Le refuser ne fait que laisser un tiers le faire."
+  },
+  {
+   "id": "E36",
+   "titre": "La marque comme actif",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Une marque etablie permet une prime de prix et reduit le cout d'acquisition, tout en constituant un actif fragile detruit par un incident de reputation.",
+   "angle": "Valorisation d'un actif incorporel dans une analyse de bilan."
+  },
+  {
+   "id": "E37",
+   "titre": "Cout d'acquisition et valeur vie client",
+   "categorie": "entreprise_strategie",
+   "statut": "praticien",
+   "ancrage": "Un modele n'est viable que si la marge cumulee sur la duree de vie du client depasse largement le cout de son acquisition.",
+   "angle": "Conquete a tout prix : le ratio, pas le nombre de comptes ouverts."
+  },
+  {
+   "id": "E38",
+   "titre": "Economie de l'abonnement et attrition",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Dans un modele recurrent, quelques points de taux d'attrition transforment radicalement la valeur actualisee du portefeuille.",
+   "angle": "Retention des depots et des clients : l'effort de retention est structurellement sous-value face a la conquete."
+  },
+  {
+   "id": "E39",
+   "titre": "Concentration du portefeuille client",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Application de la distribution de Pareto : une minorite de clients concentre la majorite du resultat.",
+   "angle": "Le vrai sujet n'est pas de servir tout le monde mais de savoir qui finance le reste."
+  },
+  {
+   "id": "E40",
+   "titre": "Modele freemium",
+   "categorie": "entreprise_strategie",
+   "statut": "praticien",
+   "ancrage": "Offrir gratuitement un service de base pour convertir une fraction des utilisateurs vers une offre payante. Ne fonctionne qu'avec un cout marginal tres faible et un taux de conversion suffisant.",
+   "angle": "Gratuite des services de paiement : qui paie reellement, et quelle est la contrepartie."
+  },
+  {
+   "id": "E41",
+   "titre": "Economie de l'attention",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Herbert Simon avait formule l'idee des les annees 1970 : l'abondance d'information cree une rarete de l'attention.",
+   "angle": "La ressource contrainte dans une relation client n'est plus l'information mais le temps de cerveau disponible."
+  },
+  {
+   "id": "E42",
+   "titre": "Ecosysteme et superapp",
+   "categorie": "entreprise_strategie",
+   "statut": "praticien",
+   "ancrage": "Agregation de services heterogenes dans une interface unique, afin de capter la frequence d'usage et les donnees associees.",
+   "angle": "La banque comme brique d'un ecosysteme, ou l'ecosysteme construit autour de la banque."
+  },
+  {
+   "id": "E43",
+   "titre": "Franchise et duplication",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Modele permettant une expansion rapide en transferant l'investissement au franchise, au prix d'un controle affaibli sur l'execution.",
+   "angle": "Reseau d'agents et de correspondants : arbitrage vitesse contre maitrise du risque operationnel."
+  },
+  {
+   "id": "E44",
+   "titre": "Standardisation et effet de club",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Adopter un standard partage augmente la valeur pour tous ses membres et augmente le cout de sortie de chacun.",
+   "angle": "Interoperabilite des paiements : cooperer sur l'infrastructure, concurrencer sur le service."
+  },
+  {
+   "id": "E45",
+   "titre": "Barrieres reglementaires a l'entree",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Un agrement protege les acteurs en place autant qu'il protege le public.",
+   "angle": "Ce que la reglementation bancaire protege reellement, et ce qui arrive quand un nouvel entrant obtient un statut allege."
+  },
+  {
+   "id": "E46",
+   "titre": "Capture du regulateur",
+   "categorie": "entreprise_strategie",
+   "statut": "debat_academique",
+   "ancrage": "George Stigler, 1971. La reglementation tendrait a etre orientee au benefice du secteur regule. These influente, contestee dans sa portee generale.",
+   "angle": "Lire une evolution reglementaire en identifiant qui elle avantage effectivement."
+  },
+  {
+   "id": "E47",
+   "titre": "Les fusions-acquisitions et la valeur",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Une large litterature converge sur le fait qu'une part importante des operations detruit de la valeur pour l'acquereur, la prime versee excedant les synergies realisees.",
+   "angle": "Instruire un financement d'acquisition en distinguant synergies annoncees et synergies contractualisables."
+  },
+  {
+   "id": "E48",
+   "titre": "Prime de controle",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Ecart entre le prix paye pour prendre le controle et la valeur de marche preexistante, justifie par les benefices prives du controle.",
+   "angle": "Financement d'une prise de participation majoritaire : que paie-t-on exactement."
+  },
+  {
+   "id": "E49",
+   "titre": "Synergies annoncees et realisees",
+   "categorie": "entreprise_strategie",
+   "statut": "praticien",
+   "ancrage": "Les synergies de couts se materialisent plus souvent que les synergies de revenus, et plus tard qu'annonce.",
+   "angle": "Plan d'affaires post-fusion : decoter les synergies de revenus par defaut."
+  },
+  {
+   "id": "E50",
+   "titre": "Decote de conglomerat",
+   "categorie": "entreprise_strategie",
+   "statut": "debat_academique",
+   "ancrage": "Un ensemble diversifie se valorise souvent moins que la somme de ses parties. Une partie de l'effet pourrait relever d'un biais de selection plutot que de la diversification elle-meme.",
+   "angle": "Groupes familiaux diversifies : opacite, subventions croisees et lecture du risque consolide."
+  },
+  {
+   "id": "E51",
+   "titre": "Entreprise familiale et horizon long",
+   "categorie": "entreprise_strategie",
+   "statut": "debat_academique",
+   "ancrage": "L'actionnariat familial est associe a un horizon d'investissement plus long et a une prudence financiere accrue, mais aussi a des risques de gouvernance et de succession.",
+   "angle": "Analyser un groupe familial : la force et la faiblesse ont la meme origine."
+  },
+  {
+   "id": "E52",
+   "titre": "Le cycle court",
+   "categorie": "entreprise_strategie",
+   "statut": "etabli",
+   "ancrage": "Certains distributeurs textiles ont bati leur avantage sur la reduction du delai entre conception et mise en rayon, en acceptant des couts de production plus eleves.",
+   "angle": "La vitesse comme avantage concurrentiel, y compris dans l'instruction d'un dossier."
+  },
+  {
+   "id": "G26",
+   "titre": "Effet de seuil des objectifs",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "Un objectif binaire concentre l'effort autour du seuil : on cesse de produire une fois atteint, on reporte sur l'exercice suivant si l'atteinte est hors de portee.",
+   "angle": "Objectifs annuels et distorsion du rythme commercial en fin de trimestre."
+  },
+  {
+   "id": "G27",
+   "titre": "Theorie de l'autodetermination",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "Edward Deci et Richard Ryan. Trois besoins psychologiques soutiennent la motivation durable : autonomie, competence, appartenance.",
+   "angle": "Ce qu'un dispositif de primes ne peut pas produire."
+  },
+  {
+   "id": "G28",
+   "titre": "Effet de surjustification",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "Recompenser une activite pratiquee pour elle-meme peut reduire la motivation intrinseque une fois la recompense retiree.",
+   "angle": "Monetiser une pratique collaborative spontanee, et la voir disparaitre."
+  },
+  {
+   "id": "G29",
+   "titre": "Theorie de l'equite",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "John Stacey Adams, 1963. La satisfaction depend du rapport percu entre sa contribution et sa retribution, compare a celui d'autrui.",
+   "angle": "Une augmentation percue comme inferieure a celle du voisin demotive malgre son montant absolu."
+  },
+  {
+   "id": "G30",
+   "titre": "Justice procedurale",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "L'acceptation d'une decision defavorable depend fortement de la perception d'equite du processus qui y a conduit.",
+   "angle": "Refuser un dossier ou une promotion : la maniere pese autant que la decision."
+  },
+  {
+   "id": "G31",
+   "titre": "Contrat psychologique",
+   "categorie": "management_organisation",
+   "statut": "praticien",
+   "ancrage": "Ensemble d'attentes reciproques implicites entre l'employe et l'organisation, non ecrites mais vecues comme engageantes.",
+   "angle": "Ce qui se brise lors d'une reorganisation, sans qu'aucune clause n'ait ete violee."
+  },
+  {
+   "id": "G32",
+   "titre": "Depart regrette et non regrette",
+   "categorie": "management_organisation",
+   "statut": "praticien",
+   "ancrage": "Un taux de rotation global ne dit rien : seul compte le profil de ceux qui partent.",
+   "angle": "Indicateur RH agrege qui masque exactement le probleme qu'il devrait signaler."
+  },
+  {
+   "id": "G33",
+   "titre": "Cout de remplacement",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "Le remplacement d'un collaborateur qualifie cumule recrutement, perte de productivite, formation et perte de memoire organisationnelle.",
+   "angle": "Comparer ce cout a l'ecart de remuneration qui aurait retenu la personne."
+  },
+  {
+   "id": "G34",
+   "titre": "Courbe d'apprentissage individuelle",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "La montee en competence sur un poste complexe s'etale sur plusieurs mois, avec une productivite negative en debut de periode.",
+   "angle": "Rotation rapide des chargés d'affaires et destruction continue de la connaissance client."
+  },
+  {
+   "id": "G35",
+   "titre": "Matrice urgent-important",
+   "categorie": "management_organisation",
+   "statut": "praticien",
+   "ancrage": "Outil de priorisation croisant urgence et importance, popularise sous le nom d'Eisenhower.",
+   "angle": "Une direction qui ne traite que l'urgent a mecaniquement abandonne l'important."
+  },
+  {
+   "id": "G36",
+   "titre": "Loi d'Illich",
+   "categorie": "management_organisation",
+   "statut": "praticien",
+   "ancrage": "Ivan Illich. Au-dela d'un certain seuil de temps de travail continu, l'efficacite devient negative.",
+   "angle": "Comites de sept heures et qualite des decisions prises en fin de seance."
+  },
+  {
+   "id": "G37",
+   "titre": "Effet tunnel de la rarete",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "Sendhil Mullainathan et Eldar Shafir, 2013. La rarete, de temps ou d'argent, capte l'attention sur l'urgence immediate et degrade la capacite de decision sur le reste.",
+   "angle": "Une equipe en surcharge permanente ne prend pas de mauvaises decisions par incompetence."
+  },
+  {
+   "id": "G38",
+   "titre": "Cout de commutation attentionnelle",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "Passer d'une tache a une autre impose un cout de reprise ; le travail dit multitache est en realite une alternance couteuse.",
+   "angle": "Organisation d'une journee de direction fractionnee en interruptions de dix minutes."
+  },
+  {
+   "id": "G39",
+   "titre": "Le cout complet d'une reunion",
+   "categorie": "management_organisation",
+   "statut": "praticien",
+   "ancrage": "Multiplier la duree par le cout horaire charge de chaque participant donne un montant rarement mis en regard de l'ordre du jour.",
+   "angle": "Comite hebdomadaire de douze cadres : le calcul suffit souvent a le reformer."
+  },
+  {
+   "id": "G40",
+   "titre": "Travail en profondeur",
+   "categorie": "management_organisation",
+   "statut": "praticien",
+   "ancrage": "Notion popularisee par Cal Newport. Les taches a forte valeur cognitive exigent des plages longues et protegees, incompatibles avec la disponibilite permanente.",
+   "angle": "Ou, dans votre semaine, se trouve le temps de reflechir plutot que de reagir."
+  },
+  {
+   "id": "G41",
+   "titre": "Organisation matricielle",
+   "categorie": "management_organisation",
+   "statut": "debat_academique",
+   "ancrage": "Double rattachement fonctionnel et hierarchique, cense concilier expertise et proximite marche. Genere des conflits d'arbitrage structurels.",
+   "angle": "Qui tranche reellement quand le metier et le reseau ne sont pas d'accord."
+  },
+  {
+   "id": "G42",
+   "titre": "Cout du silo",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "L'information detenue par une entite et non partagee conduit a des decisions localement rationnelles et globalement mauvaises.",
+   "angle": "Un client en difficulte connu du recouvrement et inconnu du commercial."
+  },
+  {
+   "id": "G43",
+   "titre": "Boucle OODA",
+   "categorie": "management_organisation",
+   "statut": "praticien",
+   "ancrage": "John Boyd, officier de l'armee de l'air americaine. Observer, s'orienter, decider, agir : l'avantage revient a celui qui boucle plus vite que son adversaire.",
+   "angle": "Vitesse de decision comme avantage concurrentiel face a un concurrent mieux dote."
+  },
+  {
+   "id": "G44",
+   "titre": "Cycle PDCA",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "Cycle planifier, faire, verifier, agir, associe a Walter Shewhart puis a William Edwards Deming.",
+   "angle": "La phase verifier est celle qui saute systematiquement dans les projets sous contrainte de delai."
+  },
+  {
+   "id": "G45",
+   "titre": "Maitrise statistique des procedes",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "Walter Shewhart. Distinguer la variation commune, inherente au processus, de la variation speciale, attribuable a une cause identifiable.",
+   "angle": "Reagir a chaque fluctuation mensuelle d'un indicateur, c'est traiter du bruit comme du signal."
+  },
+  {
+   "id": "G46",
+   "titre": "Six Sigma et ses limites",
+   "categorie": "management_organisation",
+   "statut": "debat_academique",
+   "ancrage": "Methode de reduction de la variabilite des processus. Critiquee pour son cout de deploiement et pour l'inhibition de l'innovation qu'elle peut induire dans les activites non repetitives.",
+   "angle": "Ce qui vaut pour une chaine de production ne vaut pas pour une equipe de structuration."
+  },
+  {
+   "id": "G47",
+   "titre": "Organisations a haute fiabilite",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "Travaux sur les organisations operant des systemes dangereux avec un taux d'accident tres faible : preoccupation constante de l'echec, refus de simplifier, deference a l'expertise plutot qu'au grade.",
+   "angle": "Ce qu'une salle de marche peut emprunter au controle aerien."
+  },
+  {
+   "id": "G48",
+   "titre": "Modele du fromage suisse",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "James Reason. Un accident resulte de l'alignement de failles presentes dans plusieurs couches successives de defense, jamais d'une cause unique.",
+   "angle": "Analyse d'un incident operationnel : chercher les quatre controles qui ont tous echoue."
+  },
+  {
+   "id": "G49",
+   "titre": "Erreur latente et erreur active",
+   "categorie": "management_organisation",
+   "statut": "etabli",
+   "ancrage": "James Reason. L'erreur active est celle de l'operateur au moment des faits ; l'erreur latente est la decision d'organisation ou de conception qui l'a rendue possible des annees plus tot.",
+   "angle": "Sanctionner l'operateur laisse la cause en place."
+  },
+  {
+   "id": "G50",
+   "titre": "Culture juste",
+   "categorie": "management_organisation",
+   "statut": "praticien",
+   "ancrage": "Cadre distinguant l'erreur honnete, la prise de risque consciente et la faute deliberee, avec un traitement different pour chacune.",
+   "angle": "Une organisation qui sanctionne l'erreur honnete cesse d'en etre informee."
+  },
+  {
+   "id": "G51",
+   "titre": "Retour d'experience sans blame",
+   "categorie": "management_organisation",
+   "statut": "praticien",
+   "ancrage": "Analyse post-incident centree sur les causes systemiques et explicitement detachee de la recherche d'un responsable.",
+   "angle": "Condition pratique pour que les incidents remontent, plutot que d'etre absorbes localement."
+  },
+  {
+   "id": "G52",
+   "titre": "La charge de la preuve",
+   "categorie": "management_organisation",
+   "statut": "praticien",
+   "ancrage": "Dans tout processus de decision, la question decisive est de savoir qui doit convaincre : celui qui propose le changement ou celui qui defend l'existant.",
+   "angle": "Un circuit ou l'innovation doit se justifier et le statu quo jamais produit mecaniquement de l'immobilisme."
+  },
+  {
+   "id": "I21",
+   "titre": "Jeu de l'ultimatum",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Werner Guth et ses collegues, 1982. Les partages juges inequitables sont massivement rejetes, meme au prix d'un gain nul pour celui qui refuse.",
+   "angle": "Un accord percu comme abusif sera refuse ou sabote, meme s'il est avantageux."
+  },
+  {
+   "id": "I22",
+   "titre": "Jeu du dictateur",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Variante ou le second joueur ne peut rien refuser. Les partages restent pourtant rarement nuls, ce qui documente des motivations non purement egoistes.",
+   "angle": "Ce qui reste du comportement equitable quand aucune sanction n'est possible."
+  },
+  {
+   "id": "I23",
+   "titre": "Le jeu de la confiance",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Protocole ou un joueur transfere une somme multipliee, en esperant un retour non garanti. Mesure experimentale de la confiance et de la reciprocite.",
+   "angle": "Premiere operation avec un nouveau client : le montant engage est un test, pas seulement un financement."
+  },
+  {
+   "id": "I24",
+   "titre": "Signal couteux en negociation",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Seule une concession qui coute reellement a celui qui la fait est interpretee comme un signe de bonne foi.",
+   "angle": "Une concession sans cout est lue comme une manoeuvre, pas comme un geste."
+  },
+  {
+   "id": "I25",
+   "titre": "Engagement credible",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Thomas Schelling, The Strategy of Conflict, 1960. Se priver volontairement d'une option renforce sa position, en rendant la menace ou la promesse credible.",
+   "angle": "Une politique de credit ecrite et publique vaut mieux qu'un pouvoir discretionnaire, y compris pour negocier."
+  },
+  {
+   "id": "I26",
+   "titre": "Strategie de la corde raide",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Thomas Schelling. Creer volontairement un risque partage d'issue catastrophique pour contraindre l'autre partie a ceder.",
+   "angle": "Menace de rupture des concours : arme puissante, non reutilisable."
+  },
+  {
+   "id": "I27",
+   "titre": "Point focal",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Thomas Schelling. En l'absence de communication, les parties convergent vers une solution saillante par sa simplicite ou sa symetrie, comme un partage a parts egales.",
+   "angle": "Pourquoi les negociations aboutissent si souvent a des chiffres ronds."
+  },
+  {
+   "id": "I28",
+   "titre": "Negociation distributive et integrative",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Distinguer le partage d'une valeur fixe de la creation de valeur par echange entre priorites differentes.",
+   "angle": "Avant de discuter le taux, chercher ce qui ne coute pas cher a l'un et vaut cher a l'autre."
+  },
+  {
+   "id": "I29",
+   "titre": "Echanges a valeurs asymetriques",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Ceder sur ce que l'on valorise peu contre ce que l'on valorise beaucoup cree un gain conjoint sans concession reelle.",
+   "angle": "Duree, garanties, exclusivite des flux : autant de variables a mettre sur la table avant le prix."
+  },
+  {
+   "id": "I30",
+   "titre": "Profil des concessions",
+   "categorie": "influence_negociation",
+   "statut": "praticien",
+   "ancrage": "Des concessions d'ampleur decroissante signalent l'approche d'une limite ; des concessions constantes invitent a continuer de pousser.",
+   "angle": "Ce que revele votre rythme de concessions, independamment de vos declarations."
+  },
+  {
+   "id": "I31",
+   "titre": "Le grignotage final",
+   "categorie": "influence_negociation",
+   "statut": "praticien",
+   "ancrage": "Demande supplementaire formulee une fois l'accord acquis, lorsque le cout psychologique du refus est maximal.",
+   "angle": "Clause ajoutee a la signature. La parade est de rouvrir l'ensemble, jamais de ceder isolement."
+  },
+  {
+   "id": "I32",
+   "titre": "Le mandat limite",
+   "categorie": "influence_negociation",
+   "statut": "praticien",
+   "ancrage": "Negocier au nom d'une instance qui devra valider permet de refuser sans confrontation personnelle.",
+   "angle": "Le comite de credit comme instance de decision et, accessoirement, comme levier de negociation."
+  },
+  {
+   "id": "I33",
+   "titre": "Le duo contraste",
+   "categorie": "influence_negociation",
+   "statut": "praticien",
+   "ancrage": "Technique classique ou deux negociateurs alternent fermete et conciliation pour rendre l'offre du second attractive par contraste.",
+   "angle": "A reperer lorsqu'on la subit, plus utile qu'a pratiquer."
+  },
+  {
+   "id": "I34",
+   "titre": "Effet d'echeance",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "L'essentiel des concessions intervient a l'approche immediate de la date limite, reelle ou percue.",
+   "angle": "Qui subit reellement l'echeance dans une negociation : la reponse determine le rapport de force."
+  },
+  {
+   "id": "I35",
+   "titre": "Effet de dotation",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Richard Thaler, 1980. On valorise davantage ce que l'on possede deja que ce que l'on pourrait acquerir.",
+   "angle": "Un client renonce difficilement a une condition acquise, meme non justifiee economiquement."
+  },
+  {
+   "id": "I36",
+   "titre": "Biais de statu quo",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Preference pour l'etat existant, meme lorsqu'une alternative documentee est superieure.",
+   "angle": "Renegociation d'une convention : l'inertie joue pour celui que la situation actuelle avantage."
+  },
+  {
+   "id": "I37",
+   "titre": "Reactance psychologique",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Jack Brehm, 1966. Une pression percue comme une atteinte a la liberte de choix declenche une resistance, parfois contraire a l'interet de la personne.",
+   "angle": "Forcer une decision produit un refus qui n'a rien a voir avec le fond du dossier."
+  },
+  {
+   "id": "I38",
+   "titre": "Contraste et porte au nez",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Robert Cialdini. Une demande excessive suivie d'une demande moderee augmente l'acceptation de cette derniere.",
+   "angle": "Premiere proposition tarifaire calibree pour rendre la seconde raisonnable."
+  },
+  {
+   "id": "I39",
+   "titre": "Etiquetage et identite",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Attribuer un trait a quelqu'un augmente la probabilite qu'il agisse conformement a ce trait.",
+   "angle": "Vous etes un partenaire de long terme : la phrase engage plus qu'elle ne decrit."
+  },
+  {
+   "id": "I40",
+   "titre": "Norme descriptive et norme injonctive",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Dire ce que font la plupart des gens influence differemment que dire ce qu'il faudrait faire. Signaler qu'un comportement indesirable est repandu peut le renforcer.",
+   "angle": "Communication interne sur les manquements : annoncer leur frequence peut les banaliser."
+  },
+  {
+   "id": "I41",
+   "titre": "Le tiers",
+   "categorie": "influence_negociation",
+   "statut": "praticien",
+   "ancrage": "L'intervention d'un mediateur permet des concessions impossibles en face a face, en preservant la position de chaque partie.",
+   "angle": "Restructuration multi-creanciers bloquee : le tiers debloque ce que la relation directe interdit."
+  },
+  {
+   "id": "I42",
+   "titre": "Coalitions",
+   "categorie": "influence_negociation",
+   "statut": "etabli",
+   "ancrage": "Dans une negociation a plus de deux parties, l'enjeu principal devient la formation de coalitions et l'identification du participant pivot.",
+   "angle": "Pool bancaire : la decision se joue dans les entretiens bilateraux, pas en seance."
+  },
+  {
+   "id": "D17",
+   "titre": "Heuristique de disponibilite",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Tversky et Kahneman. On estime la probabilite d'un evenement a la facilite avec laquelle des exemples viennent a l'esprit.",
+   "angle": "Apres un sinistre marquant, tout le secteur devient suspect ; avant, il ne l'etait pas assez."
+  },
+  {
+   "id": "D18",
+   "titre": "Heuristique de representativite",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Tversky et Kahneman. On juge une probabilite a la ressemblance avec un stereotype, en ignorant l'information statistique.",
+   "angle": "Ce dirigeant ressemble a un bon client : ce n'est pas une analyse."
+  },
+  {
+   "id": "D19",
+   "titre": "Negligence des taux de base",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "On surpondere l'information specifique au cas et on ignore la frequence de base du phenomene dans la population.",
+   "angle": "Un signal d'alerte tres fiable sur un evenement tres rare produit surtout des faux positifs."
+  },
+  {
+   "id": "D20",
+   "titre": "Erreur du joueur",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Croire qu'une serie d'evenements independants doit se corriger : apres cinq hausses, une baisse serait due.",
+   "angle": "Lecture d'une serie de resultats commerciaux ou boursiers comme si elle avait une memoire."
+  },
+  {
+   "id": "D21",
+   "titre": "Illusion de controle",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Tendance a surestimer son influence sur des resultats largement determines par le hasard.",
+   "angle": "Multiplication des indicateurs de pilotage sur des variables non pilotables."
+  },
+  {
+   "id": "D22",
+   "titre": "Biais du survivant",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Abraham Wald, pendant la Seconde Guerre mondiale : il fallait blinder les zones des avions ou les appareils revenus ne portaient pas d'impacts, car ceux touches a ces endroits ne revenaient pas.",
+   "angle": "Analyser les dossiers accordes et jamais ceux refuses : votre modele n'apprend que sur les survivants."
+  },
+  {
+   "id": "D23",
+   "titre": "Biais retrospectif",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Une fois l'issue connue, elle parait avoir ete previsible, ce qui fausse l'evaluation de la decision initiale.",
+   "angle": "Juger un octroi de 2022 avec l'information de 2026. Le seul remede est la trace ecrite du raisonnement au moment de la decision."
+  },
+  {
+   "id": "D24",
+   "titre": "Erreur fondamentale d'attribution",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "On explique le comportement d'autrui par son caractere et le sien par les circonstances.",
+   "angle": "Le retard vient de leur negligence ; le notre, du contexte."
+  },
+  {
+   "id": "D25",
+   "titre": "Effet de dilution",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Ajouter de l'information non pertinente affaiblit le poids accorde a l'information pertinente.",
+   "angle": "Un dossier de trois cents pages protege moins qu'une note de trois pages exacte."
+  },
+  {
+   "id": "D26",
+   "titre": "Rasoir de Hanlon",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "praticien",
+   "ancrage": "Ne jamais attribuer a la malveillance ce qu'une explication plus banale suffit a expliquer.",
+   "angle": "Un reporting non transmis releve plus souvent de la desorganisation que de la dissimulation. Plus souvent, pas toujours."
+  },
+  {
+   "id": "D27",
+   "titre": "L'inversion",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "praticien",
+   "ancrage": "Methode attribuee au mathematicien Carl Jacobi et reprise par Charlie Munger : pour resoudre un probleme, commencer par l'inverser.",
+   "angle": "Au lieu de chercher comment reussir ce projet, lister tout ce qui le ferait echouer et l'eliminer."
+  },
+  {
+   "id": "D28",
+   "titre": "Cercle de competence",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "praticien",
+   "ancrage": "Principe d'investissement associe a Warren Buffett et Charlie Munger : l'important n'est pas l'etendue du domaine que l'on maitrise mais la connaissance precise de sa frontiere.",
+   "angle": "Refuser un dossier parce qu'on ne comprend pas le secteur est une decision, pas un aveu."
+  },
+  {
+   "id": "A11",
+   "titre": "Enron, 2001",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Effondrement d'un groupe energetique americain apres la revelation d'un recours massif a des entites deconsolidees dissimulant l'endettement. L'affaire a entraine la disparition de son auditeur et une refonte de la reglementation comptable americaine.",
+   "angle": "Ce qui est hors bilan reste du risque. La question a poser est toujours : qui porte la perte si cela tourne mal."
+  },
+  {
+   "id": "A12",
+   "titre": "Wirecard, 2020",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Groupe allemand de paiement effondre apres la revelation de l'inexistence d'une tresorerie substantielle inscrite au bilan, malgre des annees de certification et des alertes de la presse ignorees.",
+   "angle": "Certification n'est pas verification. Les alertes externes precedent souvent de plusieurs annees la reconnaissance officielle."
+  },
+  {
+   "id": "A13",
+   "titre": "La tulipomanie, 1637",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "debat_academique",
+   "ancrage": "Episode neerlandais de flambee puis d'effondrement du prix des bulbes de tulipe. Les travaux d'Anne Goldgar ont fortement relativise son ampleur economique et le recit de ruines massives.",
+   "angle": "Une bulle celebre dont l'exemple sert surtout a illustrer la reprise non verifiee d'un recit."
+  },
+  {
+   "id": "A14",
+   "titre": "La bulle des mers du Sud, 1720",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Speculation britannique autour d'une compagnie adossee a la dette publique, effondree la meme annee, entrainant des interdictions durables sur la creation de societes par actions.",
+   "angle": "L'adossement a une garantie d'Etat comme moteur de speculation, hier comme aujourd'hui."
+  },
+  {
+   "id": "A15",
+   "titre": "L'Argentine, 2001",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Fin d'un regime de parite fixe avec le dollar, defaut souverain, gel des depots bancaires et conversion forcee des contrats en devise.",
+   "angle": "Le risque de convertibilite : detenir une creance en devise ne garantit pas d'etre paye en devise."
+  },
+  {
+   "id": "A16",
+   "titre": "La crise asiatique, 1997",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "etabli",
+   "ancrage": "Retournement brutal des flux de capitaux en Asie du Sud-Est, apres une periode d'endettement prive en devise etrangere adosse a des revenus en monnaie locale.",
+   "angle": "L'asymetrie de devise dans le bilan d'un client, transformee en risque de credit pour la banque."
+  },
+  {
+   "id": "X11",
+   "titre": "Le mythe des generations au travail",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "invalide",
+   "ancrage": "L'idee de traits de personnalite propres a chaque generation n'est pas soutenue par les donnees : les etudes serieuses ne parviennent pas a distinguer effet de generation, effet d'age et effet de periode.",
+   "angle": "Concevoir une politique RH sur des categories generationnelles revient a segmenter sur une variable sans pouvoir explicatif."
+  },
+  {
+   "id": "X12",
+   "titre": "Le brainstorming classique",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "invalide",
+   "ancrage": "De nombreuses etudes comparatives montrent qu'un groupe produisant des idees ensemble en genere moins qu'un nombre equivalent de personnes travaillant seules puis mettant en commun.",
+   "angle": "La production d'idees se fait individuellement, la selection collectivement. L'inverse est la pratique courante."
+  },
+  {
+   "id": "X13",
+   "titre": "La theorie des fenetres brisees",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "debat_academique",
+   "ancrage": "Hypothese selon laquelle tolerer les desordres mineurs favorise les infractions graves. Les evaluations empiriques donnent des resultats contrastes et l'attribution des baisses de criminalite observees reste disputee.",
+   "angle": "Prudence avec les theories qui justifient commodement une politique deja decidee."
+  },
+  {
+   "id": "X14",
+   "titre": "Cerveau droit et cerveau gauche",
+   "categorie": "decision_biais_idees_recues",
+   "statut": "invalide",
+   "ancrage": "L'idee d'individus a dominance hemispherique, creatifs ou analytiques, ne correspond a aucun resultat d'imagerie. La lateralisation de certaines fonctions n'implique pas de profils cognitifs.",
+   "angle": "Categoriser une equipe entre creatifs et analytiques sur une base neurologique imaginaire."
+  },
+  {
+   "id": "L26",
+   "titre": "Effet de verite illusoire",
+   "categorie": "communication_leadership",
+   "statut": "etabli",
+   "ancrage": "Une affirmation repetee est jugee plus vraie, independamment de son exactitude, y compris par des personnes disposant de l'information correcte.",
+   "angle": "Un chiffre faux repete en comite devient une donnee de reference. Corriger tot coute infiniment moins cher."
+  },
+  {
+   "id": "L27",
+   "titre": "Le dementi et ses limites",
+   "categorie": "communication_leadership",
+   "statut": "debat_academique",
+   "ancrage": "L'hypothese d'un effet de retour de flamme, ou la correction renforcerait la croyance erronee, s'est mal repliquee. La correction fonctionne generalement, mais son effet s'estompe vite.",
+   "angle": "Communiquer une rectification une fois ne suffit pas ; il faut la repeter aussi souvent que l'erreur."
+  },
+  {
+   "id": "L28",
+   "titre": "Structure narrative",
+   "categorie": "communication_leadership",
+   "statut": "praticien",
+   "ancrage": "Situation initiale, element perturbateur, resolution : une structure narrative est retenue nettement mieux qu'une enumeration d'arguments.",
+   "angle": "Presenter un dossier comme une histoire avec un enjeu, plutot que comme une liste de ratios."
+  },
+  {
+   "id": "L29",
+   "titre": "La regle de trois",
+   "categorie": "communication_leadership",
+   "statut": "praticien",
+   "ancrage": "Une intervention qui porte trois messages en laisse un ; une intervention qui en porte dix n'en laisse aucun.",
+   "angle": "Preparation d'un comite : ecrire les trois phrases que vous voulez entendre repetees le lendemain."
+  },
+  {
+   "id": "L30",
+   "titre": "Signal et bruit",
+   "categorie": "communication_leadership",
+   "statut": "etabli",
+   "ancrage": "Augmenter le nombre d'indicateurs suivis diminue l'attention disponible pour chacun et degrade la detection de ceux qui comptent.",
+   "angle": "Tableau de bord a quarante indicateurs : personne ne regarde le seul qui aurait alerte."
+  },
+  {
+   "id": "L31",
+   "titre": "Principes de la Gestalt",
+   "categorie": "communication_leadership",
+   "statut": "etabli",
+   "ancrage": "La perception regroupe spontanement les elements proches, semblables ou alignes. La mise en page produit du sens avant que le texte ne soit lu.",
+   "angle": "Deux colonnes cote a cote sont lues comme comparables, meme si elles ne le sont pas."
+  },
+  {
+   "id": "L32",
+   "titre": "Ratio donnees sur encre",
+   "categorie": "communication_leadership",
+   "statut": "praticien",
+   "ancrage": "Edward Tufte. Maximiser la part de l'encre consacree a l'information et supprimer tout ornement graphique qui n'en porte pas.",
+   "angle": "Effets de relief, degrades et cadres : tout ce qui n'informe pas gene la lecture."
+  },
+  {
+   "id": "L33",
+   "titre": "L'axe tronque",
+   "categorie": "communication_leadership",
+   "statut": "etabli",
+   "ancrage": "Un axe des ordonnees ne demarrant pas a zero amplifie visuellement une variation faible. Procede legitime dans certains cas, trompeur dans la plupart.",
+   "angle": "Le graphique le plus frequemment manipule dans une presentation d'entreprise, souvent sans intention de tromper."
+  },
+  {
+   "id": "L34",
+   "titre": "Correlation et causalite",
+   "categorie": "communication_leadership",
+   "statut": "etabli",
+   "ancrage": "Deux variables peuvent covarier par coincidence, par causalite inverse ou du fait d'un facteur commun non observe.",
+   "angle": "Nos meilleurs clients utilisent l'application : est-ce l'application qui les rend meilleurs."
+  },
+  {
+   "id": "L35",
+   "titre": "Paradoxe de Simpson",
+   "categorie": "communication_leadership",
+   "statut": "etabli",
+   "ancrage": "Une tendance observee dans plusieurs sous-groupes peut s'inverser lorsque les donnees sont agregees, du fait d'une variable de composition.",
+   "angle": "Un taux de defaut global en baisse alors qu'il augmente dans chaque segment. La moyenne ment sans que personne n'ait triche."
+  },
+  {
+   "id": "L36",
+   "titre": "Loi de Brandolini",
+   "categorie": "communication_leadership",
+   "statut": "praticien",
+   "ancrage": "Refuter une affirmation infondee demande un ordre de grandeur d'effort superieur a celui necessaire pour la produire.",
+   "angle": "Arbitrer ce que l'on corrige et ce que l'on laisse passer, faute de temps pour tout traiter."
+  },
+  {
+   "id": "L37",
+   "titre": "Effet Streisand",
+   "categorie": "communication_leadership",
+   "statut": "praticien",
+   "ancrage": "Chercher a supprimer une information augmente sa diffusion.",
+   "angle": "Reaction a une information defavorable : evaluer l'audience initiale avant d'y repondre publiquement."
+  },
+  {
+   "id": "L38",
+   "titre": "L'option par defaut",
+   "categorie": "communication_leadership",
+   "statut": "etabli",
+   "ancrage": "Le choix retenu en l'absence de decision explicite determine massivement le resultat final, l'inertie l'emportant sur la preference.",
+   "angle": "Le parametrage par defaut d'un produit est une decision strategique, rarement traitee comme telle."
+  },
+  {
+   "id": "L39",
+   "titre": "Exposition graduee au trac",
+   "categorie": "communication_leadership",
+   "statut": "etabli",
+   "ancrage": "L'anxiete de performance decroit par exposition repetee et progressive, non par evitement ni par preparation supplementaire seule.",
+   "angle": "Prendre la parole plus souvent devant de petits auditoires est plus efficace que repeter davantage seul."
+  },
+  {
+   "id": "L40",
+   "titre": "Le mythe du discours spontane",
+   "categorie": "communication_leadership",
+   "statut": "praticien",
+   "ancrage": "Les interventions percues comme naturelles reposent generalement sur une structure preparee et sur une pratique orale repetee, non sur l'improvisation.",
+   "angle": "Le naturel se travaille ; c'est la lecture d'un texte ecrit pour l'oeil qui s'entend."
+  },
+  {
+   "id": "L41",
+   "titre": "La technique du pont",
+   "categorie": "communication_leadership",
+   "statut": "praticien",
+   "ancrage": "Face a une question hostile ou hors sujet, reconnaitre brievement la question puis rejoindre son message principal, sans faire mine de ne pas avoir entendu.",
+   "angle": "Question piege en comite ou devant la presse : l'esquive visible coute plus cher que la reponse breve."
+  },
+  {
+   "id": "L42",
+   "titre": "Discipline du message",
+   "categorie": "communication_leadership",
+   "statut": "praticien",
+   "ancrage": "La lassitude de celui qui emet un message precede tres largement sa memorisation par l'auditoire.",
+   "angle": "Quand vous en avez assez de repeter la strategie, l'organisation commence a l'entendre."
+  },
+  {
+   "id": "L43",
+   "titre": "Auditoires multiples",
+   "categorie": "communication_leadership",
+   "statut": "praticien",
+   "ancrage": "Un message adresse a plusieurs publics simultanement est lu differemment par chacun, et le public non vise est souvent celui qui reagit.",
+   "angle": "Note interne qui circule a l'exterieur : ecrire en supposant la fuite."
+  },
+  {
+   "id": "L44",
+   "titre": "Ecrit et oral",
+   "categorie": "communication_leadership",
+   "statut": "praticien",
+   "ancrage": "L'ecrit supporte la nuance, la reserve et la complexite ; l'oral supporte l'engagement et la simplification. Confondre les deux registres est une source classique de malentendu.",
+   "angle": "Un arbitrage delicat s'ecrit ; une mobilisation se dit."
+  },
+  {
+   "id": "L45",
+   "titre": "La note ecrite contre la presentation",
+   "categorie": "communication_leadership",
+   "statut": "praticien",
+   "ancrage": "Certaines organisations ont remplace les presentations projetees par une note redigee lue en silence en debut de reunion, au motif qu'une phrase complete expose un raisonnement qu'une puce dissimule.",
+   "angle": "Ce qu'un tiret masque : l'absence de lien logique entre deux affirmations."
+  },
+  {
+   "id": "L46",
+   "titre": "Le silence et le rythme",
+   "categorie": "communication_leadership",
+   "statut": "praticien",
+   "ancrage": "La pause avant une phrase importante en augmente la portee, la ou le debit continu efface la hierarchie des idees.",
+   "angle": "Ce qui distingue une intervention qui porte d'une intervention qui defile."
+  },
+  {
+   "id": "L47",
+   "titre": "L'analogie",
+   "categorie": "communication_leadership",
+   "statut": "etabli",
+   "ancrage": "Le transfert d'une structure connue vers un domaine nouveau facilite la comprehension, mais transporte aussi ses limites.",
+   "angle": "Expliquer un produit structure par une analogie : verifier ou l'analogie cesse d'etre vraie avant de l'employer."
+  },
+  {
+   "id": "L48",
+   "titre": "L'humour en contexte professionnel",
+   "categorie": "communication_leadership",
+   "statut": "praticien",
+   "ancrage": "L'humour partage renforce le lien et desamorce la tension ; dirige vers une personne ou vers un groupe, il produit l'effet inverse et durablement.",
+   "angle": "Trait d'esprit en comite : le cout est asymetrique selon la position hierarchique de celui qui le fait."
+  },
+  {
+   "id": "L49",
+   "titre": "Le charisme",
+   "categorie": "communication_leadership",
+   "statut": "debat_academique",
+   "ancrage": "Longtemps traite comme un trait inne, il est aujourd'hui davantage analyse comme un ensemble de comportements identifiables et comme une attribution faite par l'auditoire.",
+   "angle": "Ce que l'on prend pour une qualite personnelle est souvent une competence apprise et un effet de contexte."
+  },
+  {
+   "id": "L50",
+   "titre": "Les trois legitimites",
+   "categorie": "communication_leadership",
+   "statut": "etabli",
+   "ancrage": "Max Weber distingue l'autorite traditionnelle, l'autorite charismatique et l'autorite legale-rationnelle.",
+   "angle": "Sur quelle legitimite repose reellement votre autorite, et ce qui se passe le jour ou elle est contestee."
+  }
+ ]
+}

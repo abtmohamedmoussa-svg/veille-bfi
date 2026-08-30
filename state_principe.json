@@ -3,7 +3,8 @@
   "L06",
   "L29",
   "L32",
-  "L48"
+  "L48",
+  "L46"
  ],
  "cycle": 1,
  "historique": [
@@ -28,6 +29,12 @@
   {
    "date": "2026-08-30",
    "id": "L48",
+   "domaine": "communication_leadership",
+   "genere": true
+  },
+  {
+   "date": "2026-08-30",
+   "id": "L46",
    "domaine": "communication_leadership",
    "genere": true
   }

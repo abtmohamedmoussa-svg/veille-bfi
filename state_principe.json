@@ -6,7 +6,8 @@
   "L48",
   "L46",
   "L49",
-  "M49"
+  "M49",
+  "C51"
  ],
  "cycle": 1,
  "historique": [
@@ -50,6 +51,12 @@
    "date": "2026-08-31",
    "id": "M49",
    "domaine": "macro",
+   "genere": true
+  },
+  {
+   "date": "2026-09-01",
+   "id": "C51",
+   "domaine": "marche_credit",
    "genere": true
   }
  ]

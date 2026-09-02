@@ -7,7 +7,8 @@
   "L46",
   "L49",
   "M49",
-  "C51"
+  "C51",
+  "E46"
  ],
  "cycle": 1,
  "historique": [
@@ -57,6 +58,12 @@
    "date": "2026-09-01",
    "id": "C51",
    "domaine": "marche_credit",
+   "genere": true
+  },
+  {
+   "date": "2026-09-02",
+   "id": "E46",
+   "domaine": "entreprise_strategie",
    "genere": true
   }
  ]

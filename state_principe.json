@@ -8,7 +8,8 @@
   "L49",
   "M49",
   "C51",
-  "E46"
+  "E46",
+  "G16"
  ],
  "cycle": 1,
  "historique": [
@@ -64,6 +65,12 @@
    "date": "2026-09-02",
    "id": "E46",
    "domaine": "entreprise_strategie",
+   "genere": true
+  },
+  {
+   "date": "2026-09-03",
+   "id": "G16",
+   "domaine": "management_organisation",
    "genere": true
   }
  ]

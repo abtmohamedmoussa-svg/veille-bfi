@@ -9,7 +9,8 @@
   "M49",
   "C51",
   "E46",
-  "G16"
+  "G16",
+  "I29"
  ],
  "cycle": 1,
  "historique": [
@@ -71,6 +72,12 @@
    "date": "2026-09-03",
    "id": "G16",
    "domaine": "management_organisation",
+   "genere": true
+  },
+  {
+   "date": "2026-09-04",
+   "id": "I29",
+   "domaine": "influence_negociation",
    "genere": true
   }
  ]

@@ -10,7 +10,8 @@
   "C51",
   "E46",
   "G16",
-  "I29"
+  "I29",
+  "X14"
  ],
  "cycle": 1,
  "historique": [
@@ -78,6 +79,12 @@
    "date": "2026-09-04",
    "id": "I29",
    "domaine": "influence_negociation",
+   "genere": true
+  },
+  {
+   "date": "2026-09-05",
+   "id": "X14",
+   "domaine": "decision_biais_idees_recues",
    "genere": true
   }
  ]

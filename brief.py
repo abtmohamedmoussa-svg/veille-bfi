@@ -20,6 +20,7 @@ import urllib.error
 import urllib.parse
 import xml.etree.ElementTree as ET
 from pathlib import Path
+from email.utils import parsedate_to_datetime
 
 MODE = (sys.argv[1] if len(sys.argv) > 1 else "daily").strip().lower()
 if MODE not in ["daily", "strategy"]:
@@ -75,8 +76,21 @@ def strip_html(s):
     return re.sub(r"\s+", " ", s).strip()
 
 
+def is_recent_article(date_str, max_age_hours=24):
+    """Check if article is from last N hours. Returns True if date is missing."""
+    if not date_str:
+        return True  # Include articles without dates
+    try:
+        item_date = parsedate_to_datetime(date_str)
+        now = datetime.datetime.now(datetime.timezone.utc)
+        age = now - item_date
+        return age.total_seconds() < (max_age_hours * 3600)
+    except Exception:
+        return True  # If date parsing fails, include it
+
+
 def fetch_feed(name, url, retries=2):
-    """Fetch feed with retry logic per source."""
+    """Fetch feed with retry logic per source (recent articles only < 24h)."""
     for attempt in range(1, retries + 1):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": UA})
@@ -99,6 +113,11 @@ def fetch_feed(name, url, retries=2):
         desc = strip_html(it.findtext("description") or "")
         date = (it.findtext("pubDate") or "").strip()
         link = (it.findtext("link") or "").strip()
+
+        # Filter old articles (keep only last 24 hours)
+        if not is_recent_article(date):
+            continue
+
         if title:
             items.append((name, title, desc[:220], date, link))
         if len(items) >= PER_FEED:
@@ -113,6 +132,11 @@ def fetch_feed(name, url, retries=2):
             # Atom uses <link href="..."> attribute
             link_elem = e.find(ns + "link")
             link = (link_elem.get("href") or "") if link_elem is not None else ""
+
+            # Filter old articles (keep only last 24 hours)
+            if not is_recent_article(date):
+                continue
+
             if title:
                 items.append((name, title, desc[:220], date, link))
             if len(items) >= PER_FEED:

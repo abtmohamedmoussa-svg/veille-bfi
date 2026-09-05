@@ -24,7 +24,6 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           GITHUB_PAGES_URL: ${{ vars.GITHUB_PAGES_URL || 'https://abtmohamedmoussa-svg.github.io/veille-bfi/' }}
         run: python brief.py daily
-      
       - name: Commit et push les fichiers générés
         if: success()
         run: |
@@ -34,7 +33,6 @@ jobs:
           git add index.html briefs.json archive.json 2>/dev/null || true
           git commit -m "🔄 Update briefs: $(date +%Y-%m-%d)" || true
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git main
-      
       - name: ✅ Succès
         if: success()
         run: echo "[OK] Brief quotidien envoyé + fichiers pushés"

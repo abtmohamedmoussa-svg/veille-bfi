@@ -11,7 +11,8 @@
   "E46",
   "G16",
   "I29",
-  "X14"
+  "X14",
+  "L42"
  ],
  "cycle": 1,
  "historique": [
@@ -85,6 +86,12 @@
    "date": "2026-09-05",
    "id": "X14",
    "domaine": "decision_biais_idees_recues",
+   "genere": true
+  },
+  {
+   "date": "2026-09-06",
+   "id": "L42",
+   "domaine": "communication_leadership",
    "genere": true
   }
  ]

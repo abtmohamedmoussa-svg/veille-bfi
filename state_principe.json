@@ -12,7 +12,8 @@
   "G16",
   "I29",
   "X14",
-  "L42"
+  "L42",
+  "M48"
  ],
  "cycle": 1,
  "historique": [
@@ -92,6 +93,12 @@
    "date": "2026-09-06",
    "id": "L42",
    "domaine": "communication_leadership",
+   "genere": true
+  },
+  {
+   "date": "2026-09-07",
+   "id": "M48",
+   "domaine": "macro",
    "genere": true
   }
  ]

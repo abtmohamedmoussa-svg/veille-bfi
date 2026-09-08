@@ -13,7 +13,8 @@
   "I29",
   "X14",
   "L42",
-  "M48"
+  "M48",
+  "C29"
  ],
  "cycle": 1,
  "historique": [
@@ -99,6 +100,12 @@
    "date": "2026-09-07",
    "id": "M48",
    "domaine": "macro",
+   "genere": true
+  },
+  {
+   "date": "2026-09-08",
+   "id": "C29",
+   "domaine": "marche_credit",
    "genere": true
   }
  ]

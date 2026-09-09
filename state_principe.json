@@ -14,7 +14,8 @@
   "X14",
   "L42",
   "M48",
-  "C29"
+  "C29",
+  "E35"
  ],
  "cycle": 1,
  "historique": [
@@ -106,6 +107,12 @@
    "date": "2026-09-08",
    "id": "C29",
    "domaine": "marche_credit",
+   "genere": true
+  },
+  {
+   "date": "2026-09-09",
+   "id": "E35",
+   "domaine": "entreprise_strategie",
    "genere": true
   }
  ]

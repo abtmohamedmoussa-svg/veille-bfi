@@ -15,7 +15,8 @@
   "L42",
   "M48",
   "C29",
-  "E35"
+  "E35",
+  "G23"
  ],
  "cycle": 1,
  "historique": [
@@ -113,6 +114,12 @@
    "date": "2026-09-09",
    "id": "E35",
    "domaine": "entreprise_strategie",
+   "genere": true
+  },
+  {
+   "date": "2026-09-10",
+   "id": "G23",
+   "domaine": "management_organisation",
    "genere": true
   }
  ]

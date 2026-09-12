@@ -17,7 +17,8 @@
   "C29",
   "E35",
   "G23",
-  "I16"
+  "I16",
+  "A01"
  ],
  "cycle": 1,
  "historique": [
@@ -127,6 +128,12 @@
    "date": "2026-09-11",
    "id": "I16",
    "domaine": "influence_negociation",
+   "genere": true
+  },
+  {
+   "date": "2026-09-12",
+   "id": "A01",
+   "domaine": "decision_biais_idees_recues",
    "genere": true
   }
  ]

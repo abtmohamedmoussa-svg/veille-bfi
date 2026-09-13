@@ -18,7 +18,8 @@
   "E35",
   "G23",
   "I16",
-  "A01"
+  "A01",
+  "L25"
  ],
  "cycle": 1,
  "historique": [
@@ -134,6 +135,12 @@
    "date": "2026-09-12",
    "id": "A01",
    "domaine": "decision_biais_idees_recues",
+   "genere": true
+  },
+  {
+   "date": "2026-09-13",
+   "id": "L25",
+   "domaine": "communication_leadership",
    "genere": true
   }
  ]

@@ -20,7 +20,8 @@
   "I16",
   "A01",
   "L25",
-  "C22"
+  "C22",
+  "E25"
  ],
  "cycle": 1,
  "historique": [
@@ -148,6 +149,12 @@
    "date": "2026-09-15",
    "id": "C22",
    "domaine": "marche_credit",
+   "genere": true
+  },
+  {
+   "date": "2026-09-16",
+   "id": "E25",
+   "domaine": "entreprise_strategie",
    "genere": true
   }
  ]

@@ -21,7 +21,8 @@
   "A01",
   "L25",
   "C22",
-  "E25"
+  "E25",
+  "G08"
  ],
  "cycle": 1,
  "historique": [
@@ -155,6 +156,12 @@
    "date": "2026-09-16",
    "id": "E25",
    "domaine": "entreprise_strategie",
+   "genere": true
+  },
+  {
+   "date": "2026-09-17",
+   "id": "G08",
+   "domaine": "management_organisation",
    "genere": true
   }
  ]

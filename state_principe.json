@@ -22,7 +22,8 @@
   "L25",
   "C22",
   "E25",
-  "G08"
+  "G08",
+  "G37"
  ],
  "cycle": 1,
  "historique": [
@@ -161,6 +162,12 @@
   {
    "date": "2026-09-17",
    "id": "G08",
+   "domaine": "management_organisation",
+   "genere": true
+  },
+  {
+   "date": "2026-09-17",
+   "id": "G37",
    "domaine": "management_organisation",
    "genere": true
   }

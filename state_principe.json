@@ -23,7 +23,8 @@
   "C22",
   "E25",
   "G08",
-  "G37"
+  "G37",
+  "I02"
  ],
  "cycle": 1,
  "historique": [
@@ -169,6 +170,12 @@
    "date": "2026-09-17",
    "id": "G37",
    "domaine": "management_organisation",
+   "genere": true
+  },
+  {
+   "date": "2026-09-18",
+   "id": "I02",
+   "domaine": "influence_negociation",
    "genere": true
   }
  ]

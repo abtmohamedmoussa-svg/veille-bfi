@@ -24,7 +24,8 @@
   "E25",
   "G08",
   "G37",
-  "I02"
+  "I02",
+  "X10"
  ],
  "cycle": 1,
  "historique": [
@@ -176,6 +177,12 @@
    "date": "2026-09-18",
    "id": "I02",
    "domaine": "influence_negociation",
+   "genere": true
+  },
+  {
+   "date": "2026-09-19",
+   "id": "X10",
+   "domaine": "decision_biais_idees_recues",
    "genere": true
   }
  ]

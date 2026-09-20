@@ -25,7 +25,8 @@
   "G08",
   "G37",
   "I02",
-  "X10"
+  "X10",
+  "L31"
  ],
  "cycle": 1,
  "historique": [
@@ -183,6 +184,12 @@
    "date": "2026-09-19",
    "id": "X10",
    "domaine": "decision_biais_idees_recues",
+   "genere": true
+  },
+  {
+   "date": "2026-09-20",
+   "id": "L31",
+   "domaine": "communication_leadership",
    "genere": true
   }
  ]

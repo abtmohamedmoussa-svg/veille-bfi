@@ -26,7 +26,8 @@
   "G37",
   "I02",
   "X10",
-  "L31"
+  "L31",
+  "C15"
  ],
  "cycle": 1,
  "historique": [
@@ -190,6 +191,12 @@
    "date": "2026-09-20",
    "id": "L31",
    "domaine": "communication_leadership",
+   "genere": true
+  },
+  {
+   "date": "2026-09-22",
+   "id": "C15",
+   "domaine": "marche_credit",
    "genere": true
   }
  ]

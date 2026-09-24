@@ -29,7 +29,8 @@
   "L31",
   "C15",
   "E48",
-  "G14"
+  "G14",
+  "I27"
  ],
  "cycle": 1,
  "historique": [
@@ -211,6 +212,12 @@
    "date": "2026-09-24",
    "id": "G14",
    "domaine": "management_organisation",
+   "genere": true
+  },
+  {
+   "date": "2026-09-25",
+   "id": "I27",
+   "domaine": "influence_negociation",
    "genere": true
   }
  ]

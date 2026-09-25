@@ -30,7 +30,8 @@
   "C15",
   "E48",
   "G14",
-  "I27"
+  "I27",
+  "X04"
  ],
  "cycle": 1,
  "historique": [
@@ -218,6 +219,12 @@
    "date": "2026-09-25",
    "id": "I27",
    "domaine": "influence_negociation",
+   "genere": true
+  },
+  {
+   "date": "2026-09-26",
+   "id": "X04",
+   "domaine": "decision_biais_idees_recues",
    "genere": true
   }
  ]

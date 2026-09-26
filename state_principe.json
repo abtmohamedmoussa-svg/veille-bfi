@@ -31,7 +31,8 @@
   "E48",
   "G14",
   "I27",
-  "X04"
+  "X04",
+  "L08"
  ],
  "cycle": 1,
  "historique": [
@@ -225,6 +226,12 @@
    "date": "2026-09-26",
    "id": "X04",
    "domaine": "decision_biais_idees_recues",
+   "genere": true
+  },
+  {
+   "date": "2026-09-27",
+   "id": "L08",
+   "domaine": "communication_leadership",
    "genere": true
   }
  ]

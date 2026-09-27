@@ -32,7 +32,8 @@
   "G14",
   "I27",
   "X04",
-  "L08"
+  "L08",
+  "M10"
  ],
  "cycle": 1,
  "historique": [
@@ -232,6 +233,12 @@
    "date": "2026-09-27",
    "id": "L08",
    "domaine": "communication_leadership",
+   "genere": true
+  },
+  {
+   "date": "2026-09-28",
+   "id": "M10",
+   "domaine": "macro",
    "genere": true
   }
  ]

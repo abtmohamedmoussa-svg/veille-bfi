@@ -34,7 +34,8 @@
   "X04",
   "L08",
   "M10",
-  "C35"
+  "C35",
+  "E07"
  ],
  "cycle": 1,
  "historique": [
@@ -246,6 +247,12 @@
    "date": "2026-09-29",
    "id": "C35",
    "domaine": "marche_credit",
+   "genere": true
+  },
+  {
+   "date": "2026-09-30",
+   "id": "E07",
+   "domaine": "entreprise_strategie",
    "genere": true
   }
  ]

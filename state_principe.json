@@ -33,7 +33,8 @@
   "I27",
   "X04",
   "L08",
-  "M10"
+  "M10",
+  "C35"
  ],
  "cycle": 1,
  "historique": [
@@ -239,6 +240,12 @@
    "date": "2026-09-28",
    "id": "M10",
    "domaine": "macro",
+   "genere": true
+  },
+  {
+   "date": "2026-09-29",
+   "id": "C35",
+   "domaine": "marche_credit",
    "genere": true
   }
  ]

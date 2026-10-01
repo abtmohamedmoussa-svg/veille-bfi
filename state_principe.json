@@ -35,7 +35,8 @@
   "L08",
   "M10",
   "C35",
-  "E07"
+  "E07",
+  "G21"
  ],
  "cycle": 1,
  "historique": [
@@ -253,6 +254,12 @@
    "date": "2026-09-30",
    "id": "E07",
    "domaine": "entreprise_strategie",
+   "genere": true
+  },
+  {
+   "date": "2026-10-01",
+   "id": "G21",
+   "domaine": "management_organisation",
    "genere": true
   }
  ]

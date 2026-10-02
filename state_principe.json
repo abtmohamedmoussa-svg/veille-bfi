@@ -36,7 +36,8 @@
   "M10",
   "C35",
   "E07",
-  "G21"
+  "G21",
+  "I39"
  ],
  "cycle": 1,
  "historique": [
@@ -260,6 +261,12 @@
    "date": "2026-10-01",
    "id": "G21",
    "domaine": "management_organisation",
+   "genere": true
+  },
+  {
+   "date": "2026-10-02",
+   "id": "I39",
+   "domaine": "influence_negociation",
    "genere": true
   }
  ]

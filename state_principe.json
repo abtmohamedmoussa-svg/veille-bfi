@@ -37,7 +37,8 @@
   "C35",
   "E07",
   "G21",
-  "I39"
+  "I39",
+  "L26"
  ],
  "cycle": 1,
  "historique": [
@@ -274,6 +275,12 @@
    "id": "A07",
    "domaine": "decision_biais_idees_recues",
    "genere": false
+  },
+  {
+   "date": "2026-10-04",
+   "id": "L26",
+   "domaine": "communication_leadership",
+   "genere": true
   }
  ]
 }

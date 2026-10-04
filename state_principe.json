@@ -38,7 +38,8 @@
   "E07",
   "G21",
   "I39",
-  "L26"
+  "L26",
+  "M08"
  ],
  "cycle": 1,
  "historique": [
@@ -280,6 +281,12 @@
    "date": "2026-10-04",
    "id": "L26",
    "domaine": "communication_leadership",
+   "genere": true
+  },
+  {
+   "date": "2026-10-05",
+   "id": "M08",
+   "domaine": "macro",
    "genere": true
   }
  ]

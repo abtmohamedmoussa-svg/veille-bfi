@@ -39,7 +39,8 @@
   "G21",
   "I39",
   "L26",
-  "M08"
+  "M08",
+  "C30"
  ],
  "cycle": 1,
  "historique": [
@@ -287,6 +288,12 @@
    "date": "2026-10-05",
    "id": "M08",
    "domaine": "macro",
+   "genere": true
+  },
+  {
+   "date": "2026-10-06",
+   "id": "C30",
+   "domaine": "marche_credit",
    "genere": true
   }
  ]

@@ -41,7 +41,8 @@
   "L26",
   "M08",
   "C30",
-  "E03"
+  "E03",
+  "G10"
  ],
  "cycle": 1,
  "historique": [
@@ -301,6 +302,12 @@
    "date": "2026-10-07",
    "id": "E03",
    "domaine": "entreprise_strategie",
+   "genere": true
+  },
+  {
+   "date": "2026-10-08",
+   "id": "G10",
+   "domaine": "management_organisation",
    "genere": true
   }
  ]

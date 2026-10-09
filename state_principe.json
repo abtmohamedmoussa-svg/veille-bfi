@@ -42,7 +42,8 @@
   "M08",
   "C30",
   "E03",
-  "G10"
+  "G10",
+  "I28"
  ],
  "cycle": 1,
  "historique": [
@@ -308,6 +309,12 @@
    "date": "2026-10-08",
    "id": "G10",
    "domaine": "management_organisation",
+   "genere": true
+  },
+  {
+   "date": "2026-10-09",
+   "id": "I28",
+   "domaine": "influence_negociation",
    "genere": true
   }
  ]

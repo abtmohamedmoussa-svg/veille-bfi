@@ -43,7 +43,8 @@
   "C30",
   "E03",
   "G10",
-  "I28"
+  "I28",
+  "X01"
  ],
  "cycle": 1,
  "historique": [
@@ -315,6 +316,12 @@
    "date": "2026-10-09",
    "id": "I28",
    "domaine": "influence_negociation",
+   "genere": true
+  },
+  {
+   "date": "2026-10-10",
+   "id": "X01",
+   "domaine": "decision_biais_idees_recues",
    "genere": true
   }
  ]
